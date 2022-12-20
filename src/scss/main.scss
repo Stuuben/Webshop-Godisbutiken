@@ -29,6 +29,7 @@ nav {
 
 main {
   @include mixins.main;
+  min-height: 78vh;
 }
 
 .contact {
@@ -74,11 +75,11 @@ main {
   width: 60px;
   height: 60px;
 }
-<<<<<<< HEAD
-//
 
 //
 
+//
+// <i class="fa-solid fa-cart-circle-xmark"></i>
 //
 
 .shoppingcart {
@@ -87,6 +88,11 @@ main {
   border: 1px black solid;
   margin: 20px;
   text-align: left;
+  .fa-trash {
+    font-size: 1rem;
+    display: flex;
+    justify-content: end;
+  }
   h3 {
     text-align: center;
   }
@@ -94,7 +100,9 @@ main {
   p {
     margin: 0;
   }
-
+  button {
+    border-radius: 50%;
+  }
   .summa {
     display: flex;
     justify-content: space-around;
@@ -110,26 +118,26 @@ main {
   .button__wrapper {
     display: flex;
   }
+  .fa-cart-circle-xmark {
+    background-color: black;
+  }
 }
-=======
 
 .checkout__container {
   @include mixins.checkout__container;
 
   @include mixins.tablet {
-  flex-direction: row;
+    flex-direction: row;
 
-  .checkout {
-    flex-direction: column;
-    align-items: center;
-    height: 40vh;
-  
+    .checkout {
+      flex-direction: column;
+      align-items: center;
+      height: 40vh;
     }
 
-  .checkout__img {
-    width: 50%;
-    margin: 5px;
-  }
+    .checkout__img {
+      width: 50%;
+      margin: 5px;
+    }
   }
 }
->>>>>>> 04f759b3dc7aa4f1c9ee7d463e088f4977d1c5c1
