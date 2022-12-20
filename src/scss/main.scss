@@ -11,6 +11,17 @@ nav {
   @include hamburger.mobile-menu;
 
   @include mixins.nav-bar;
+
+  @include mixins.tablet {
+    .top-nav {
+      flex-direction: row-reverse;
+
+      .logo {
+        position: absolute;
+        left: 50%;
+      }
+    }
+  }
 }
 
 main {
@@ -19,6 +30,31 @@ main {
 
 .contact {
   @include mixins.footer;
+
+  @include mixins.tablet {
+    display: flex;
+    width: 100%;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      font-size: 1.2em;
+      gap: 60px;
+      justify-content: space-evenly;
+    }
+
+    li {
+      max-width: 100%;
+    }
+
+    // .contact__container {
+    //   width: 100%;
+    // }
+
+    // li {
+    //   padding-right: 30%;
+    // }
+  }
 }
 
 .fa-solid {

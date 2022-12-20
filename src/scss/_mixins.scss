@@ -1,5 +1,11 @@
 @use "variables" as var;
 
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
 @mixin nav-bar {
   background-color: var.$primary;
 
@@ -11,6 +17,10 @@
 
 @mixin main {
   color: rgb(68, 63, 63);
+  text-align: center;
+
+  p {
+  }
 }
 
 @mixin footer {
@@ -21,6 +31,7 @@
   ul {
     list-style-type: none;
     display: flex;
+    flex-direction: column;
     gap: 10px;
     padding: 0;
     padding-left: 10px;
