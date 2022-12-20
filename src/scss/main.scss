@@ -15,10 +15,13 @@ nav {
   @include mixins.tablet {
     .top-nav {
       flex-direction: row-reverse;
+      height: 10vh;
 
       .logo {
         position: absolute;
         left: 50%;
+        width: 70px;
+        height: 70px;
       }
     }
   }
@@ -59,10 +62,14 @@ main {
 
 .fa-solid {
   color: var.$third;
-  font-size: 1.3em;
+  font-size: 2em;
+
+  @include mixins.tablet {
+    font-size: 2.5em;
+  }
 }
 
 .logo {
-  width: 35px;
-  height: 35px;
+  width: 60px;
+  height: 60px;
 }

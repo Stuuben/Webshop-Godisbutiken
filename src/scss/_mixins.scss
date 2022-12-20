@@ -1,7 +1,7 @@
 @use "variables" as var;
 
 @mixin tablet {
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 700px) {
     @content;
   }
 }
