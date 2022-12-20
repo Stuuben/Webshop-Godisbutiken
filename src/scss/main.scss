@@ -66,6 +66,7 @@ main {
 
   @include mixins.tablet {
     font-size: 2.5em;
+    padding: 5px;
   }
 }
 
@@ -73,6 +74,7 @@ main {
   width: 60px;
   height: 60px;
 }
+<<<<<<< HEAD
 //
 
 //
@@ -109,3 +111,25 @@ main {
     display: flex;
   }
 }
+=======
+
+.checkout__container {
+  @include mixins.checkout__container;
+
+  @include mixins.tablet {
+  flex-direction: row;
+
+  .checkout {
+    flex-direction: column;
+    align-items: center;
+    height: 40vh;
+  
+    }
+
+  .checkout__img {
+    width: 50%;
+    margin: 5px;
+  }
+  }
+}
+>>>>>>> 04f759b3dc7aa4f1c9ee7d463e088f4977d1c5c1
