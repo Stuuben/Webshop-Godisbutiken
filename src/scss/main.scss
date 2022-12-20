@@ -73,3 +73,39 @@ main {
   width: 60px;
   height: 60px;
 }
+//
+
+//
+
+//
+
+.shoppingcart {
+  background-color: aliceblue;
+
+  border: 1px black solid;
+  margin: 20px;
+  text-align: left;
+  h3 {
+    text-align: center;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .summa {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .item {
+    display: flex;
+    justify-content: space-between;
+  }
+  .shoppingcart__wrapper--item {
+    border-bottom: 1px solid black;
+  }
+  .button__wrapper {
+    display: flex;
+  }
+}
