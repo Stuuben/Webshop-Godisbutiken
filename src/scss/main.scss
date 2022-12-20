@@ -1,0 +1,32 @@
+@use "hamburger";
+@use "variables" as var;
+@use "mixins";
+
+body {
+  background-color: var.$fifth;
+  margin: 0;
+}
+
+nav {
+  @include hamburger.mobile-menu;
+
+  @include mixins.nav-bar;
+}
+
+main {
+  @include mixins.main;
+}
+
+.contact {
+  @include mixins.footer;
+}
+
+.fa-solid {
+  color: var.$third;
+  font-size: 1.3em;
+}
+
+.logo {
+  width: 35px;
+  height: 35px;
+}
