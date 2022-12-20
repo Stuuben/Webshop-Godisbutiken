@@ -66,10 +66,31 @@ main {
 
   @include mixins.tablet {
     font-size: 2.5em;
+    padding: 5px;
   }
 }
 
 .logo {
   width: 60px;
   height: 60px;
+}
+
+.checkout__container {
+  @include mixins.checkout__container;
+
+  @include mixins.tablet {
+  flex-direction: row;
+
+  .checkout {
+    flex-direction: column;
+    align-items: center;
+    height: 40vh;
+  
+    }
+
+  .checkout__img {
+    width: 50%;
+    margin: 5px;
+  }
+  }
 }

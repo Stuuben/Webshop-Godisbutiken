@@ -37,3 +37,27 @@
     padding-left: 10px;
   }
 }
+
+@mixin checkout__container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 2%;
+
+  .checkout {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background-color: white;
+    height: 20vh;
+  }
+
+  .checkout__img {
+   width: 20%;
+   padding: 10px;
+  }
+
+  .price, .candy {
+    font-weight: bold;
+  }
+}
