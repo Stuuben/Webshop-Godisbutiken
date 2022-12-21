@@ -61,3 +61,47 @@
     font-weight: bold;
   }
 }
+
+@mixin product__main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 2%;
+
+}
+
+@mixin product {
+  width: 40%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var.$primary;
+
+  .product__img {
+    width: 50%;
+    padding: 5%;
+  }
+
+  p {
+    width: 90%;
+  }
+
+  button {
+    background-color: var.$primary;
+    border: none;
+    padding: 8px;
+    width: 50px;
+    border-radius: 15%;
+
+    &:hover {
+      background-color: var.$secondary;
+    }
+  }
+
+ 
+}
+

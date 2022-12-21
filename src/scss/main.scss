@@ -50,14 +50,6 @@ main {
     li {
       max-width: 100%;
     }
-
-    // .contact__container {
-    //   width: 100%;
-    // }
-
-    // li {
-    //   padding-right: 30%;
-    // }
   }
 }
 
@@ -75,12 +67,6 @@ main {
   width: 60px;
   height: 60px;
 }
-<<<<<<< HEAD
-//
-
-//
-
-//
 
 .shoppingcart {
   background-color: aliceblue;
@@ -140,4 +126,28 @@ main {
       margin: 5px;
     }
   }
+}
+
+.product__main {
+  @include mixins.product__main;
+
+  @include mixins.tablet { 
+    width: 100%;
+    flex-direction: row;
+  }
+}
+
+.product {
+  @include mixins.product;
+
+  @include mixins.tablet {
+    width: 20%;
+    height: 50vh;
+  }
+}
+
+
+
+.product__title {
+  text-align: center;
 }
