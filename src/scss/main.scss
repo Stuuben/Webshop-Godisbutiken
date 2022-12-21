@@ -142,11 +142,9 @@ main {
 
   @include mixins.tablet {
     width: 20%;
-    height: 50vh;
+    height: 60vh;
   }
 }
-
-
 
 .product__title {
   text-align: center;
