@@ -7,6 +7,7 @@ body {
   margin: 0;
 }
 
+//Navigering
 nav {
   @include hamburger.mobile-menu;
 
@@ -32,6 +33,7 @@ main {
   min-height: 78vh;
 }
 
+//Footer
 .contact {
   @include mixins.footer;
 
@@ -53,6 +55,7 @@ main {
   }
 }
 
+//Ikoner
 .fa-solid {
   color: var.$third;
   font-size: 2em;
@@ -68,6 +71,7 @@ main {
   height: 60px;
 }
 
+//Varukorg
 .shoppingcart {
   background-color: aliceblue;
 
@@ -109,6 +113,7 @@ main {
   }
 }
 
+//Kassa
 .checkout__container {
   @include mixins.checkout__container;
 
@@ -128,24 +133,30 @@ main {
   }
 }
 
+//Produkter
+.product__title {
+  text-align: center;
+}
+
 .product__main {
   @include mixins.product__main;
 
-  @include mixins.tablet { 
+  @include mixins.tablet {
     width: 100%;
     flex-direction: row;
   }
-}
 
-.product {
-  @include mixins.product;
+  .product {
+    @include mixins.product;
 
-  @include mixins.tablet {
-    width: 20%;
-    height: 60vh;
+    @include mixins.tablet {
+      width: 20%;
+      height: 60vh;
+    }
   }
 }
 
-.product__title {
-  text-align: center;
+//Filtrering
+.filter__container {
+  @include mixins.filterCandy;
 }
