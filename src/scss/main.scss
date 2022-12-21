@@ -74,12 +74,6 @@ main {
   width: 60px;
   height: 60px;
 }
-<<<<<<< HEAD
-//
-
-//
-
-//
 
 .shoppingcart {
   background-color: aliceblue;
@@ -111,25 +105,22 @@ main {
     display: flex;
   }
 }
-=======
 
 .checkout__container {
   @include mixins.checkout__container;
 
   @include mixins.tablet {
-  flex-direction: row;
+    flex-direction: row;
 
-  .checkout {
-    flex-direction: column;
-    align-items: center;
-    height: 40vh;
-  
+    .checkout {
+      flex-direction: column;
+      align-items: center;
+      height: 40vh;
     }
 
-  .checkout__img {
-    width: 50%;
-    margin: 5px;
-  }
+    .checkout__img {
+      width: 50%;
+      margin: 5px;
+    }
   }
 }
->>>>>>> 04f759b3dc7aa4f1c9ee7d463e088f4977d1c5c1
