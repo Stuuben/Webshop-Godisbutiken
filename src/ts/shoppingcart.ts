@@ -1,4 +1,4 @@
-import { candys } from "./main";
+import { Candy, candys } from "./main";
 
 console.log("shoppingcart");
 
@@ -24,8 +24,6 @@ function handleShoppinglist() {
   shoppingCart.innerHTML = "";
 
   for (let i = 0; i < candys.length; i++) {
-    console.log(candys[i]);
-
     let candyItemWrapper = document.createElement("div");
     candyItemWrapper.classList.add("itemWrapper");
     let candyName = document.createElement("p");
@@ -33,7 +31,7 @@ function handleShoppinglist() {
     let candyPrice = document.createElement("span");
 
     candyName.innerHTML = candys[i].name;
-    candyPrice.innerHTML = String(candys[i].price);
+    candyPrice.innerHTML = String(candys[i].price) + " kr";
 
     candyItemWrapper.appendChild(candyName);
     candyName.appendChild(candyPrice);
@@ -41,3 +39,19 @@ function handleShoppinglist() {
   }
 }
 handleShoppinglist();
+
+let sum = 0;
+
+function addSummary() {
+  let summary = document.getElementById(
+    "item__summary"
+  ) as HTMLParagraphElement;
+
+  for (let i = 0; i < candys.length; i++) {
+    //summary.innerHTML += (candys[i].price += sum).toString();
+    sum += candys[i].price;
+    summary.innerHTML = sum.toString();
+  }
+}
+
+addSummary();

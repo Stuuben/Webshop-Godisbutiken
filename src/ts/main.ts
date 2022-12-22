@@ -2,7 +2,7 @@ console.log("hej");
 
 export class Candy {
   name: string;
-  price?: number;
+  price: number;
   type: string;
   img: string;
   constructor(name: string, price: number, type: string, img: string) {
