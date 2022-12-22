@@ -1,9 +1,10 @@
-import { candys } from "./main";
+import { Candy, candys } from "./main";
 
 let container = document.getElementById("main") as HTMLDivElement;
 
 console.log(candys);
 
+//Loopar Candys objekten in i HTML:en
 for (let i = 0; i < candys.length; i++) {
   console.log(candys[i]);
 
@@ -25,7 +26,7 @@ for (let i = 0; i < candys.length; i++) {
   buyBtn.innerHTML = "Köp";
   buyBtn.classList.add("buy");
   buyBtn.addEventListener("click", () => {
-    handleClick(candys[i])
+    handleClick(candys[i]);
   });
 
   div.appendChild(img);
@@ -35,6 +36,24 @@ for (let i = 0; i < candys.length; i++) {
   container.appendChild(div);
 }
 
+//Köp knappen
 function handleClick(godis) {
   console.log("klickad", godis);
+  candys.push(godis);
+  console.log(candys);
 }
+
+//Sorteringsfunktion
+// let sort = candys.filter(sortCandy);
+
+
+
+function checkSour() {
+  let checkboxSour = document.getElementById("filterSour") as HTMLElement;
+
+  if(checkboxSour.ariaChecked) {
+    console.log("checkad");
+  }
+}
+
+checkSour();

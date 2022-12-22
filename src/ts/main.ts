@@ -1,8 +1,8 @@
 console.log("hej");
 
-class Candy {
+export class Candy {
   name: string;
-  price: number;
+  price?: number;
   type: string;
   img: string;
   constructor(name: string, price: number, type: string, img :string) {
@@ -32,11 +32,5 @@ export let candys: Candy[] = [
   marabou,
   rassberrySkull,
 ];
-// console.log(candys);
 
-// Betala knappen skickar en vidare till paymentsite
-let hejhej = document.getElementById("hej") as HTMLButtonElement;
 
-hejhej.addEventListener("click", () => {
-  console.log("hej");
-});
