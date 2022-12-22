@@ -96,18 +96,27 @@ nav {
     justify-content: space-around;
     align-items: center;
   }
-  .item {
+  span {
+    text-align: right;
+
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
   }
-  .shoppingcart__wrapper--item {
-    border-bottom: 1px solid black;
+  .itemWrapper {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.238);
+    &:last-child {
+      border-bottom: 0;
+    }
   }
+
   .button__wrapper {
     display: flex;
   }
   .fa-cart-circle-xmark {
     background-color: black;
+  }
+  .summa {
+    border-top: 1px solid black;
   }
 }
 

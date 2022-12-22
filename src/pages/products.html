@@ -9,7 +9,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="/src/scss/main.scss" />
-    <script src="/src/ts/products.ts" defer></script>
+    <script src="/src/ts/products.ts" defer type="module"></script>
 
     <title>Godisbutiken</title>
   </head>
@@ -41,9 +41,12 @@
     <section class="filter__container">
       <p class="filter__text">Filtrera bland smak:</p>
       <div class="filter">
-      <label for="filterSour">Sur</label><input type="checkbox" value="sour" id="filterSour">
-      <label for="filterChocolate">Choklad</label><input type="checkbox" value="chocolate" id="filterChocolate">
-      <label for="filterRaspberry">Hallon</label><input type="checkbox" value="raspberry" id="filterRaspberry">
+        <label for="filterSour">Sur</label
+        ><input type="checkbox" value="sour" id="filterSour" />
+        <label for="filterChocolate">Choklad</label
+        ><input type="checkbox" value="chocolate" id="filterChocolate" />
+        <label for="filterRaspberry">Hallon</label
+        ><input type="checkbox" value="raspberry" id="filterRaspberry" />
       </div>
     </section>
 
@@ -122,10 +125,16 @@
       </div>
 
       <div class="product">
-        <img class="product__img" src="./../assets/hallonlakrits.png" alt="hallon lakrits skalle" />
+        <img
+          class="product__img"
+          src="./../assets/hallonlakrits.png"
+          alt="hallon lakrits skalle"
+        />
         <h3>Hallonlakritsskalle</h3>
         <p>Söt och salt med smak av hallon/lakrits.</p>
-        <p class="candyPrice">Pris: <span id="hallonLakritsPrice">5.50 kr</span></p>
+        <p class="candyPrice">
+          Pris: <span id="hallonLakritsPrice">5.50 kr</span>
+        </p>
         <button class="buy" id="hallonLakrits">Köp</button>
       </div>
     </main>
