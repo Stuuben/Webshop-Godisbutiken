@@ -79,19 +79,30 @@ nav {
   margin: 20px;
   text-align: left;
   .fa-trash {
-    font-size: 1rem;
+    font-size: 1.5rem;
     display: flex;
     justify-content: end;
+    padding-right: 0.7rem;
+    &:hover {
+      cursor: pointer;
+      color: rgb(226, 60, 60);
+    }
   }
   h3 {
     text-align: center;
   }
 
-  p {
+  p.candy__name {
     margin: 0;
     padding-left: 1rem;
+    width: 100%;
   }
-
+  button.button__minus,
+  .button__plus {
+    margin: 0.4rem;
+    background-color: var.$primary;
+    border-color: var.$sixth;
+  }
   .summa {
     display: flex;
     justify-content: space-around;
@@ -99,16 +110,16 @@ nav {
   }
   span {
     text-align: right;
-    padding-right: 0.9rem;
-
     display: flex;
-    flex-direction: column;
+    justify-content: right;
+    padding-right: 0.9rem;
   }
   .itemWrapper {
     border-bottom: 1px solid rgba(0, 0, 0, 0.238);
     &:last-child {
       border-bottom: 0;
     }
+    display: flex;
   }
 
   .button__wrapper {
