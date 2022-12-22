@@ -52,9 +52,5 @@ export let candys: Candy[] = [
   marabou,
   rassberrySkull,
 ];
-<<<<<<< HEAD
 
-
-=======
 console.log(candys);
->>>>>>> 696dbfef9559130e4bf80f315a59dc7167d27a3e
