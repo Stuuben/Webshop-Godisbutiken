@@ -30,29 +30,22 @@ let candys: Candy[] = [
   marabou,
   rassberrySkull,
 ];
-console.log(candys);
+// console.log(candys);
 
-/* let candyItem = document.getElementById("candy__item") as HTMLDivElement;
+let candyItem = document.getElementById("candy__item") as HTMLDivElement;
 
 function handleCandys() {
   for (let i = 0; i < candys.length; i++) {
     let candyName = document.createElement("p");
+    candyName.innerHTML = "Hej";
 
     candyName.innerHTML += candys[i].name;
 
     console.log(candys[i].price);
     candyItem.appendChild(candyName);
   }
-} */
+} 
 
-/* handleCandys(); */
+// handleCandys();
 
-// Betala knappen skickar en vidare till paymentsite
-/* let paymentButton = document.getElementById(
-  "paymentButton"
-) as HTMLButtonElement;
 
-paymentButton.addEventListener("click", function () {
-  document.location.href = "/src/pages/paymentsite.html";
-});
- */
