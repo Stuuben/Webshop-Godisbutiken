@@ -1,6 +1,7 @@
-import { candys } from "./main";
+import { Candy, candys } from "./main";
 
 let container = document.getElementById("main") as HTMLDivElement;
+let boughtCandy :Candy[] = [];
 
 //Loopar Candys objekten in i HTML:en
 function createHTML() {
@@ -35,9 +36,15 @@ function createHTML() {
 }
 //Köp knappen
 function handleClick(godis) {
+  boughtCandy.push(godis);
+  let buyCandy = JSON.stringify(boughtCandy);
+  localStorage.setItem("TEST", buyCandy);
+
   console.log("klickad", godis);
-  candys.push(godis);
+  // candys.push(godis);
+ 
   console.log(candys);
+  console.log(boughtCandy);
 }
 
 let filter = " ";
@@ -47,55 +54,52 @@ let checkboxSour = document.getElementById("filterSour") as HTMLInputElement;
 let checkboxChocolate = document.getElementById(
   "filterChocolate"
 ) as HTMLInputElement;
-let checkboxRaspberry = document.getElementById("filterRaspberry") as HTMLInputElement;
+let checkboxRaspberry = document.getElementById(
+  "filterRaspberry"
+) as HTMLInputElement;
 
 function checkForFilter() {
+  checkboxSour.addEventListener("change", () => {
+    if (checkboxSour.checked === true) {
+      filter = "Sur";
 
-checkboxSour.addEventListener("change", () => {
-  if (checkboxSour.checked === true) {
-    filter = "Sur";
-
-    if (filter == "Sur") {
-      filteredProducts();
-      console.log("Hej");
+      if (filter == "Sur") {
+        filteredProducts();
+        console.log("Hej");
+      }
+    } else {
+      container.innerHTML = "";
+      createHTML();
     }
-  } else {
-    container.innerHTML = "";
-    createHTML();
-  }
-});
+  });
 
-checkboxChocolate.addEventListener("change", () => {
-  if (checkboxChocolate.checked === true) {
-    filter = "Choklad";
-    console.log("Choklad");
+  checkboxChocolate.addEventListener("change", () => {
+    if (checkboxChocolate.checked === true) {
+      filter = "Choklad";
+      console.log("Choklad");
 
-    if (filter == "Choklad") {
-      filteredProducts();
+      if (filter == "Choklad") {
+        filteredProducts();
+      }
+    } else {
+      container.innerHTML = " ";
+      createHTML();
     }
-  }
+  });
 
-  else {
-    container.innerHTML = " ";
-    createHTML();
-  }
-});
+  checkboxRaspberry.addEventListener("change", () => {
+    if (checkboxRaspberry.checked === true) {
+      filter = "Hallon";
+      console.log("Hallon");
 
-checkboxRaspberry.addEventListener("change", () => {
-  if(checkboxRaspberry.checked === true) {
-    filter = "Hallon";
-    console.log("Hallon");
-
-    if (filter == "Hallon") {
-      filteredProducts();
+      if (filter == "Hallon") {
+        filteredProducts();
+      }
+    } else {
+      container.innerHTML = " ";
+      createHTML();
     }
-  }
-
-  else {
-    container.innerHTML = " ";
-    createHTML();
-  }
-})
+  });
 }
 
 function filteredProducts() {
