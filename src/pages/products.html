@@ -9,7 +9,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="/src/scss/main.scss" />
-    <script src="/src/ts/products.ts" defer></script>
+    <script src="/src/ts/products.ts" type="module" defer></script>
 
     <title>Godisbutiken</title>
   </head>
@@ -41,94 +41,17 @@
     <section class="filter__container">
       <p class="filter__text">Filtrera bland smak:</p>
       <div class="filter">
-      <label for="filterSour">Sur</label><input type="checkbox" value="sour" id="filterSour">
-      <label for="filterChocolate">Choklad</label><input type="checkbox" value="chocolate" id="filterChocolate">
-      <label for="filterRaspberry">Hallon</label><input type="checkbox" value="raspberry" id="filterRaspberry">
+        <label for="filterSour">Sur</label
+        ><input type="checkbox" value="sour" id="filterSour" />
+        <label for="filterChocolate">Choklad</label
+        ><input type="checkbox" value="chocolate" id="filterChocolate" />
+        <label for="filterRaspberry">Hallon</label
+        ><input type="checkbox" value="raspberry" id="filterRaspberry" />
       </div>
     </section>
 
     <h1 class="product__title">Produkter</h1>
-    <main class="product__main">
-      <div class="product">
-        <img
-          class="product__img"
-          src="./../assets/fizzybubbliz.png"
-          alt="fizzybubbliz"
-        />
-        <h3>Fizzy Bubliz</h3>
-        <p>Sur godis med smak av bubbelgum.</p>
-        <p class="candyPrice">Pris: <span id="fizzyPrice">6 kr</span></p>
-        <button class="buy" id="fizzy">Köp</button>
-      </div>
-
-      <div class="product">
-        <img
-          class="product__img"
-          src="./../assets/jordnotsruta.png"
-          alt="jordnötsruta"
-        />
-        <h3>Jordnötsruta</h3>
-        <p>Kolagodis med jordnötter och mjölkchoklad.</p>
-        <p class="candyPrice">Pris: <span id="peanutPrice">5 kr</span></p>
-        <button class="buy" id="peanut">Köp</button>
-      </div>
-
-      <div class="product">
-        <img
-          class="product__img"
-          src="./../assets/punschpraliner.jpeg"
-          alt="punschpraliner"
-        />
-        <h3>Punschpralin</h3>
-        <p>Chokladdoppad pralin med punschsmak.</p>
-        <p class="candyPrice">Pris: <span id="punschPrice">4.50 kr</span></p>
-        <button class="buy" id="punsch">Köp</button>
-      </div>
-
-      <div class="product">
-        <img
-          class="product__img"
-          src="./../assets/suranappar.jpg"
-          alt="sura nappar"
-        />
-        <h3>Sura nappar</h3>
-        <p>Sura nappar med kolasmak.</p>
-        <p class="candyPrice">Pris: <span id="sourColaPrice">5 kr</span></p>
-        <button class="buy" id="sourcola">Köp</button>
-      </div>
-
-      <div class="product">
-        <img class="product__img" src="./../assets/geisha.jpg" alt="geisha" />
-        <h3>Geisha</h3>
-        <p>Mjölkchoklad med nötnougat.</p>
-        <p class="candyPrice">Pris: <span id="geishaPrice">8 kr</span></p>
-        <button class="buy" id="geisha">Köp</button>
-      </div>
-
-      <div class="product">
-        <img class="product__img" src="./../assets/ferrari.png" alt="ferrari" />
-        <h3>Ferrari</h3>
-        <p>Vingummi med hallonsmak.</p>
-        <p class="candyPrice">Pris: <span id="ferrariPrice">5 kr</span></p>
-        <button class="buy" id="ferrari">Köp</button>
-      </div>
-
-      <div class="product">
-        <img class="product__img" src="./../assets/marabou.png" alt="marabou" />
-        <h3>Marabou</h3>
-        <p>Mjölkchoklad.</p>
-        <p class="candyPrice">Pris: <span id="marabouPrice">8 kr</span></p>
-        <button class="buy" id="marabou">Köp</button>
-      </div>
-
-      <div class="product">
-        <img class="product__img" src="./../assets/hallonlakrits.png" alt="hallon lakrits skalle" />
-        <h3>Hallonlakritsskalle</h3>
-        <p>Söt och salt med smak av hallon/lakrits.</p>
-        <p class="candyPrice">Pris: <span id="hallonLakritsPrice">5.50 kr</span></p>
-        <button class="buy" id="hallonLakrits">Köp</button>
-      </div>
-    </main>
+    <main class="product__main" id="main"></main>
 
     <footer class="contact" id="contact">
       <div>
