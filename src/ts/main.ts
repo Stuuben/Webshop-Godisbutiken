@@ -34,20 +34,9 @@ export let candys: Candy[] = [
 ];
 // console.log(candys);
 
-let candyItem = document.getElementById("candy__item") as HTMLDivElement;
+// Betala knappen skickar en vidare till paymentsite
+let hejhej = document.getElementById("hej") as HTMLButtonElement;
 
-function handleCandys() {
-  for (let i = 0; i < candys.length; i++) {
-    let candyName = document.createElement("p");
-    candyName.innerHTML = "Hej";
-
-    candyName.innerHTML += candys[i].name;
-
-    console.log(candys[i].price);
-    candyItem.appendChild(candyName);
-  }
-} 
-
-// handleCandys();
-
-
+hejhej.addEventListener("click", () => {
+  console.log("hej");
+});
