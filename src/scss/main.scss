@@ -28,7 +28,7 @@ nav {
   }
 }
 
-main {
+.landingMain {
   @include mixins.main;
   min-height: 78vh;
 }

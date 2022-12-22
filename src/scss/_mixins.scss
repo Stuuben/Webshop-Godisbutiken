@@ -6,6 +6,7 @@
   }
 }
 
+//Navigering
 @mixin nav-bar {
   background-color: var.$primary;
 
@@ -15,11 +16,17 @@
   }
 }
 
+//Landningssida
 @mixin main {
   color: rgb(68, 63, 63);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  p {
+
+  .welcomeText {
+    width: 70vw;
   }
 }
 
@@ -89,6 +96,11 @@
 
   p {
     width: 90%;
+    text-align: center;
+  }
+
+  .candyPrice {
+    font-weight: bold;
   }
 
   button {
