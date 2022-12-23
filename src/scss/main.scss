@@ -40,6 +40,7 @@ nav {
   @include mixins.tablet {
     display: flex;
     width: 100%;
+    height: 20vh;
 
     ul {
       display: flex;
