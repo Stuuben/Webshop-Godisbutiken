@@ -11,8 +11,12 @@ paymentButton.addEventListener("click", () => {
 
 let trashcan = document.getElementById("trashcan") as HTMLDivElement;
 trashcan.addEventListener("click", () => {
+  let summary = document.getElementById(
+    "item__summary"
+  ) as HTMLParagraphElement;
+  summary.innerHTML = "";
   candys.length = 0;
-  summary.innerHTML = "0 kr";
+
   console.log(candys);
   handleShoppinglist();
 });
@@ -26,27 +30,43 @@ function handleShoppinglist() {
 
   for (let i = 0; i < candys.length; i++) {
     let candyItemWrapper = document.createElement("div");
-    let buttonWrapper = document.createElement("div");
+
     candyItemWrapper.classList.add("itemWrapper");
     let candyName = document.createElement("p");
     candyName.classList.add("candy__name");
     let candyPrice = document.createElement("span");
+
     let minusButton = document.createElement("button");
     minusButton.classList.add("button__minus");
-    let plusButton = document.createElement("button");
-    plusButton.classList.add("button__plus");
+    // let plusButton = document.createElement("button");
+    // plusButton.classList.add("button__plus");
+
+    let numberInput = document.createElement("input") as HTMLInputElement;
+    numberInput.classList.add("input__number");
+    numberInput.type = "number";
+    numberInput.min = "1";
+
+    numberInput.value = candys[i].amount.toString();
+
+    numberInput.addEventListener("input", (event) => {
+      const value = (event.target as HTMLInputElement).value;
+      candys[i].amount = Number(value);
+      handleSummary();
+    });
 
     minusButton.addEventListener("click", () => subtrackCandy(i));
-    plusButton.addEventListener("click", () => addCandy(i));
+    // plusButton.addEventListener("click", () => addCandy(i));
 
     candyName.innerHTML = candys[i].name;
-    candyPrice.innerHTML = String(candys[i].price) + " kr";
-    minusButton.innerHTML = "-";
-    plusButton.innerHTML = "+";
+    candyPrice.innerHTML = String(candys[i].price * candys[i].amount) + " kr";
+    minusButton.innerHTML = "remove";
+    // plusButton.innerHTML = "+";
 
     candyItemWrapper.appendChild(minusButton);
-    candyItemWrapper.appendChild(plusButton);
+    // candyItemWrapper.appendChild(plusButton);
+    candyItemWrapper.appendChild(numberInput);
     candyItemWrapper.appendChild(candyName);
+
     candyName.appendChild(candyPrice);
     shoppingCart.appendChild(candyItemWrapper);
   }
@@ -56,12 +76,20 @@ handleShoppinglist();
 //
 
 // Räknar ut Summan av alla varorna
-let sum = 0;
-let summary = document.getElementById("item__summary") as HTMLParagraphElement;
+
 function handleSummary() {
+  let sum = 0;
+
+  let summary = document.getElementById(
+    "item__summary"
+  ) as HTMLParagraphElement;
+  summary.innerHTML = "";
+
   for (let i = 0; i < candys.length; i++) {
-    sum += candys[i].price;
+    sum += candys[i].price * candys[i].amount;
     summary.innerHTML = sum.toString() + " kr";
+    console.log(candys[i].amount);
+    handleShoppinglist();
   }
 }
 handleSummary();
@@ -69,18 +97,20 @@ handleSummary();
 //
 
 //
+
 function subtrackCandy(i: number) {
   console.log("click-");
   console.log(candys[i].price);
-  console.log(sum);
+
   candys.splice(i, 1);
 
   handleShoppinglist();
   handleSummary();
 }
 
-function addCandy(i) {
+function addCandy(i: number) {
   console.log("click+");
+
   candys.push(candys[i]);
   handleShoppinglist();
   handleSummary();
