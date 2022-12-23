@@ -33,6 +33,10 @@ nav {
   min-height: 78vh;
 }
 
+.shoppingh1 {
+  text-align: center;
+}
+
 //Footer
 .contact {
   @include mixins.footer;
@@ -197,7 +201,8 @@ nav {
   @include mixins.payment;
 }
 
-.contactInfo, .cardInfo {
+.contactInfo,
+.cardInfo {
   @include mixins.contactInfo;
 
   @include mixins.tablet {
