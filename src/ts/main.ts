@@ -1,4 +1,4 @@
-console.log("hej");
+// console.log("hej");
 
 export class Candy {
   name: string;
@@ -55,7 +55,7 @@ export let candys: Candy[] = [
   rassberrySkull,
 ];
 
-console.log(candys);
+// console.log(candys);
 
 // type CartItem = {
 //   product:Candy;

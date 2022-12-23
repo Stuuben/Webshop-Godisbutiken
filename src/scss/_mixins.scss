@@ -56,13 +56,14 @@
   .checkout {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 15px;
     background-color: white;
     height: 20vh;
   }
 
   .checkout__img {
-    width: 23%;
+    width: 15%;
     padding: 10px;
   }
 

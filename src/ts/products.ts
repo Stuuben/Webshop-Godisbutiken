@@ -35,19 +35,26 @@ function createHTML() {
   }
 }
 //Köp knappen
-function handleClick(godis) {
+function handleClick(godis: Candy) {
   boughtCandy.push(godis);
-  let buyCandy = JSON.stringify(boughtCandy);
-  localStorage.setItem("TEST", buyCandy);
 
-  console.log("klickad", godis);
-  // candys.push(godis);
+  let customerCandystring = JSON.stringify(boughtCandy);
+  localStorage.setItem("godis", customerCandystring);
 
-  console.log(candys);
-  console.log(boughtCandy);
+  console.log("Köpt: ", godis);
 }
 
 let filter = " ";
+
+//
+/* const todosFromString = localStorage.getItem("myTodos");
+
+let toDos = JSON.parse(todosFromString) || myToDos;
+
+
+const toDosString = JSON.stringify(toDos);
+localStorage.setItem("myTodos", toDosString); */
+//
 
 //Checkbox för sura godisar
 let checkAll = document.getElementById("filterAll") as HTMLInputElement;
@@ -61,12 +68,11 @@ let checkboxRaspberry = document.getElementById(
 
 function checkForFilter() {
   checkAll.addEventListener("change", () => {
-    if(checkAll.checked === true) {
+    if (checkAll.checked === true) {
       container.innerHTML = " ";
       createHTML();
-      
     }
-  })
+  });
 
   checkboxSour.addEventListener("change", () => {
     if (checkboxSour.checked === true) {
@@ -75,7 +81,6 @@ function checkForFilter() {
 
       if (filter == "Sur") {
         filteredProducts();
-        console.log("Hej");
       }
     } else {
       container.innerHTML = "";
@@ -98,7 +103,6 @@ function checkForFilter() {
   checkboxRaspberry.addEventListener("change", () => {
     if (checkboxRaspberry.checked === true) {
       filter = "Hallon";
-      console.log("Hallon");
 
       if (filter == "Hallon") {
         filteredProducts();

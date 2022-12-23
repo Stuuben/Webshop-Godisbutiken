@@ -80,10 +80,10 @@ nav {
 //Varukorg
 .shoppingcart {
   background-color: white;
-
   border: 1px black solid;
   margin: 20px;
   text-align: left;
+
   .fa-trash {
     font-size: 1.5rem;
     display: flex;
@@ -154,16 +154,18 @@ nav {
 
   @include mixins.tablet {
     flex-direction: column;
+    width: 50%;
+    align-items: center;
 
     .checkout {
       flex-direction: row;
       align-items: center;
-      height: 30vh;
-      width: 50%;
+      height: 20vh;
+      width: 80%;
     }
 
     .checkout__img {
-      width: 20%;
+      width: 30%;
     }
   }
 }
@@ -227,4 +229,23 @@ nav {
 
 .confirm {
   @include mixins.payBtn;
+}
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.tablet {
+    flex-direction: row;
+  }
+}
+
+.biggestWrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include mixins.tablet {
+    flex-direction: column;
+    width: 50%;
+  }
 }
