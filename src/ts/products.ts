@@ -50,6 +50,7 @@ function handleClick(godis) {
 let filter = " ";
 
 //Checkbox för sura godisar
+let checkAll = document.getElementById("filterAll") as HTMLInputElement;
 let checkboxSour = document.getElementById("filterSour") as HTMLInputElement;
 let checkboxChocolate = document.getElementById(
   "filterChocolate"
@@ -59,8 +60,17 @@ let checkboxRaspberry = document.getElementById(
 ) as HTMLInputElement;
 
 function checkForFilter() {
+  checkAll.addEventListener("change", () => {
+    if(checkAll.checked === true) {
+      container.innerHTML = " ";
+      createHTML();
+      
+    }
+  })
+
   checkboxSour.addEventListener("change", () => {
     if (checkboxSour.checked === true) {
+      container.innerHTML = " ";
       filter = "Sur";
 
       if (filter == "Sur") {
@@ -69,7 +79,6 @@ function checkForFilter() {
       }
     } else {
       container.innerHTML = "";
-      createHTML();
     }
   });
 
@@ -83,7 +92,6 @@ function checkForFilter() {
       }
     } else {
       container.innerHTML = " ";
-      createHTML();
     }
   });
 
@@ -97,7 +105,6 @@ function checkForFilter() {
       }
     } else {
       container.innerHTML = " ";
-      createHTML();
     }
   });
 }

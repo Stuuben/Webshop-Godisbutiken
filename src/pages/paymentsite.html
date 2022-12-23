@@ -39,8 +39,60 @@
     </div>
 
     <main>
-      <h1>Betalning</h1>
-      </p>
+      <h2 class="paymentHeading">Kortuppgifter</h2>
+      <form>
+        <div class="payment">
+          <div class="acceptedCards">
+            <p class="acceptedCards__text">Accepterade kort</p>
+            <p>
+              <i class="fa-brands fa-cc-visa" title="visa"></i
+              ><i class="fa-brands fa-cc-amex" title="amex"></i
+              ><i class="fa-brands fa-cc-mastercard" title="mastercard"></i>
+            </p>
+          </div>
+
+          <div class="contactInfo">
+            <label for="firstname">Förnamn: </label>
+            <input type="text" id="firstname" />
+
+            <label for="lastname">Efternamn: </label>
+            <input type="text" id="lastname" />
+
+            <label for="email">E-mail: </label>
+            <input type="email" id="email" />
+
+            <label for="adress">Adress: </label>
+            <input type="text" id="adress" />
+
+            <label for="city">Stad: </label>
+            <input type="text" id="city" />
+
+            <label for="zipCode">Postnummer: </label>
+            <input type="text" id="zipCode" />
+          </div>
+
+          <div class="cardInfo">
+            <label for="cardName">Namn på kortet: </label>
+            <input type="text" id="cardName" />
+
+            <label for="cardNumber">Kortnummer: </label>
+            <input type="text" id="cardNumber" />
+
+            <label for="expMonth">Utgångsmånad: </label>
+            <input type="number" id="expMonth" />
+
+            <label for="expYear">Utgångsår: </label>
+            <input type="number" id="expYear" />
+
+            <label for="cvc">CVC: </label>
+            <input type="number" id="cvc" />
+          </div>
+        </div>
+      </form>
+
+      <div class="confirm">
+        <button type="submit" class="confirmBuy" id="confirmButton">Bekräfta köp</button>
+      </div>
     </main>
 
     <footer class="contact" id="contact">
