@@ -9,7 +9,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="/src/scss/main.scss" />
-    <script src="/src/ts/main.ts" defer type="module"></script>
+    <script defer src="/src/ts/kassa.ts" type="module"></script>
 
     <title>Godisbutiken</title>
   </head>
@@ -39,50 +39,8 @@
     </div>
 
     <main>
-      <h1>Kassa</h1>
-      <div class="checkout__container">
-        <div class="checkout">
-          <img
-            class="checkout__img"
-            id="candyImg"
-            src="https://i2.wp.com/segagubben.se/wp-content/uploads/2018/09/jordnotsruta-losgodis-sega-gubben.jpg?fit=208%2C172&ssl=1"
-            alt="godis"
-          />
-          <div class="checkout__info">
-            <p class="candy" id="candyName">Jordnötsruta</p>
-            <p class="price" id="candyPrice">Pris: 2kr/st</p>
-            <button id="changeAmount">Öka/minska</button>
-          </div>
-        </div>
-
-        <div class="checkout">
-          <img
-            class="checkout__img"
-            id="candyImg"
-            src="https://i2.wp.com/segagubben.se/wp-content/uploads/2018/09/jordnotsruta-losgodis-sega-gubben.jpg?fit=208%2C172&ssl=1"
-            alt="godis"
-          />
-          <div class="checkout__info">
-            <p class="candy" id="candyName">Jordnötsruta</p>
-            <p class="price" id="candyPrice">Pris: 2kr/st</p>
-            <button id="changeAmount">Öka/minska</button>
-          </div>
-        </div>
-
-        <div class="checkout">
-          <img
-            class="checkout__img"
-            id="candyImg"
-            src="https://i2.wp.com/segagubben.se/wp-content/uploads/2018/09/jordnotsruta-losgodis-sega-gubben.jpg?fit=208%2C172&ssl=1"
-            alt="godis"
-          />
-          <div class="checkout__info">
-            <p class="candy" id="candyName">Jordnötsruta</p>
-            <p class="price" id="candyPrice">Pris: 2kr/st</p>
-            <button id="changeAmount">Öka/minska</button>
-          </div>
-        </div>
-      </div>
+      <h1 class="checkout__heading">Kassa</h1>
+      <div class="checkout__container" id="checkout__container"></div>
     </main>
 
     <footer class="contact" id="contact">
