@@ -28,6 +28,7 @@ nav {
   }
 }
 
+//Landningssida
 .landingMain {
   @include mixins.main;
   min-height: 78vh;
@@ -135,21 +136,25 @@ nav {
 }
 
 //Kassa
+.checkout__heading {
+  text-align: center;
+}
+
 .checkout__container {
   @include mixins.checkout__container;
 
   @include mixins.tablet {
-    flex-direction: row;
+    flex-direction: column;
 
     .checkout {
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      height: 40vh;
+      height: 30vh;
+      width: 50%;
     }
 
     .checkout__img {
-      width: 50%;
-      margin: 5px;
+      width: 20%;
     }
   }
 }
