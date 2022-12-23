@@ -1,7 +1,7 @@
 import { Candy, candys } from "./main";
 
 let container = document.getElementById("main") as HTMLDivElement;
-let boughtCandy :Candy[] = [];
+let boughtCandy: Candy[] = [];
 
 //Loopar Candys objekten in i HTML:en
 function createHTML() {
@@ -42,7 +42,7 @@ function handleClick(godis) {
 
   console.log("klickad", godis);
   // candys.push(godis);
- 
+
   console.log(candys);
   console.log(boughtCandy);
 }
