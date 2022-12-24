@@ -5,77 +5,47 @@ let container = document.getElementById(
 ) as HTMLDivElement;
 
 let godis: string = "godis";
-
 let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
 
 let candyAgain = candyObj.map((candy) => {
   return new Candy(candy.name, candy.price, candy.type, candy.img);
 });
 
-console.log(candyAgain);
-
 let cartItems: any = [];
 cartItems.push(candyAgain);
-// console.log(cartItems);
 
-//Denna ska vi loopa igenom för att få localStorage skärmen :-)
-for (let i = 0; i < candyAgain.length; i++) {
-  console.log(candyAgain[i]);
+function handleCandyItems() {
+  for (let i = 0; i < candyAgain.length; i++) {
+    console.log(candyAgain[i]);
 
-  let div = document.createElement("div") as HTMLDivElement;
-  div.classList.add("checkout");
+    let div = document.createElement("div") as HTMLDivElement;
+    div.classList.add("checkout");
 
-  let img = document.createElement("img") as HTMLImageElement;
-  img.src = candyAgain[i].img;
-  img.classList.add("checkout__img");
+    let img = document.createElement("img") as HTMLImageElement;
+    img.src = candyAgain[i].img;
+    img.classList.add("checkout__img");
 
-  let info = document.createElement("div") as HTMLDivElement;
-  info.classList.add("checkout__info");
+    let info = document.createElement("div") as HTMLDivElement;
+    info.classList.add("checkout__info");
 
-  let pTag = document.createElement("p") as HTMLParagraphElement;
-  pTag.innerHTML = candyAgain[i].name;
-  pTag.classList.add("candy");
+    let pTag = document.createElement("p") as HTMLParagraphElement;
+    pTag.innerHTML = candyAgain[i].name;
+    pTag.classList.add("candy");
 
-  let priceTag = document.createElement("p") as HTMLParagraphElement;
-  priceTag.innerHTML = String(`Pris: ${candyAgain[i].price}`);
-  priceTag.classList.add("price");
+    let priceTag = document.createElement("p") as HTMLParagraphElement;
+    priceTag.innerHTML = String(`Pris: ${candyAgain[i].price} kr`);
+    priceTag.classList.add("price");
 
-  div.appendChild(img);
-  div.appendChild(pTag);
-  div.appendChild(priceTag);
-  container.appendChild(div);
+    div.appendChild(img);
+    div.appendChild(pTag);
+    div.appendChild(priceTag);
+    container.appendChild(div);
+
+    console.log(candyAgain[i]);
+  }
 }
-/* const todosFromString = localStorage.getItem("myTodos"); */
 
-/* let toDos = JSON.parse(todosFromString) || myToDos; */
-
-// for (let i = 0; i < candys.length; i++) {
-//   let div = document.createElement("div") as HTMLDivElement;
-//   div.classList.add("checkout");
-
-//   let img = document.createElement("img") as HTMLImageElement;
-//   img.src = candys[i].img;
-//   img.classList.add("checkout__img");
-
-//   let info = document.createElement("div") as HTMLDivElement;
-//   info.classList.add("checkout__info");
-
-//   let pTag = document.createElement("p") as HTMLParagraphElement;
-//   pTag.innerHTML = candys[i].name;
-//   pTag.classList.add("candy");
-
-//   let pricetag = document.createElement("p") as HTMLParagraphElement;
-//   pricetag.innerHTML = String(`Pris: ${candys[i].price} kr`);
-//   pricetag.classList.add("price");
-
-//   div.appendChild(img);
-//   div.appendChild(info);
-//   info.appendChild(pTag);
-//   info.appendChild(pricetag);
-//   container.appendChild(div);
-// }
-
-//
+handleCandyItems();
 
 console.log("shoppingcart");
 
@@ -92,9 +62,9 @@ trashcan.addEventListener("click", () => {
     "item__summary"
   ) as HTMLParagraphElement;
   summary.innerHTML = "";
-  candys.length = 0;
+  candyAgain.length = 0;
 
-  console.log(candys);
+  console.log(candyAgain);
   handleShoppinglist();
 });
 
@@ -105,7 +75,7 @@ function handleShoppinglist() {
 
   shoppingCart.innerHTML = "";
 
-  for (let i = 0; i < candys.length; i++) {
+  for (let i = 0; i < candyAgain.length; i++) {
     let candyItemWrapper = document.createElement("div");
 
     candyItemWrapper.classList.add("itemWrapper");
@@ -123,19 +93,20 @@ function handleShoppinglist() {
     numberInput.type = "number";
     numberInput.min = "1";
 
-    numberInput.value = candys[i].amount.toString();
+    numberInput.value = candyAgain[i].amount.toString();
 
     numberInput.addEventListener("input", (event) => {
       const value = (event.target as HTMLInputElement).value;
-      candys[i].amount = Number(value);
+      candyAgain[i].amount = Number(value);
       handleSummary();
     });
 
     minusButton.addEventListener("click", () => subtrackCandy(i));
     // plusButton.addEventListener("click", () => addCandy(i));
 
-    candyName.innerHTML = candys[i].name;
-    candyPrice.innerHTML = String(candys[i].price * candys[i].amount) + " kr";
+    candyName.innerHTML = candyAgain[i].name;
+    candyPrice.innerHTML =
+      String(candyAgain[i].price * candyAgain[i].amount) + " kr";
     minusButton.innerHTML = "remove";
     // plusButton.innerHTML = "+";
 
