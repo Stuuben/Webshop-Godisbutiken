@@ -6,42 +6,74 @@ let container = document.getElementById(
 
 let godis: string = "godis";
 
-let candyObj = localStorage.getItem("godis");
-let candyBajs: [] = JSON.parse(candyObj || godis);
-// console.log("Du har köpt: " + candyBajs);
+let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
 
-for (let i = 0; i < candyBajs.length; i++) {
-  console.log("Du har köpt:" + candyBajs[i]);
-}
-/* const todosFromString = localStorage.getItem("myTodos"); */
+let candyAgain = candyObj.map((candy) => {
+  return new Candy(candy.name, candy.price, candy.type, candy.img);
+});
 
-/* let toDos = JSON.parse(todosFromString) || myToDos; */
+console.log(candyAgain);
 
-for (let i = 0; i < candys.length; i++) {
+let cartItems: any = [];
+cartItems.push(candyAgain);
+// console.log(cartItems);
+
+//Denna ska vi loopa igenom för att få localStorage skärmen :-)
+for (let i = 0; i < candyAgain.length; i++) {
+  console.log(candyAgain[i]);
+
   let div = document.createElement("div") as HTMLDivElement;
   div.classList.add("checkout");
 
   let img = document.createElement("img") as HTMLImageElement;
-  img.src = candys[i].img;
+  img.src = candyAgain[i].img;
   img.classList.add("checkout__img");
 
   let info = document.createElement("div") as HTMLDivElement;
   info.classList.add("checkout__info");
 
   let pTag = document.createElement("p") as HTMLParagraphElement;
-  pTag.innerHTML = candys[i].name;
+  pTag.innerHTML = candyAgain[i].name;
   pTag.classList.add("candy");
 
-  let pricetag = document.createElement("p") as HTMLParagraphElement;
-  pricetag.innerHTML = String(`Pris: ${candys[i].price} kr`);
-  pricetag.classList.add("price");
+  let priceTag = document.createElement("p") as HTMLParagraphElement;
+  priceTag.innerHTML = String(`Pris: ${candyAgain[i].price}`);
+  priceTag.classList.add("price");
 
   div.appendChild(img);
-  div.appendChild(info);
-  info.appendChild(pTag);
-  info.appendChild(pricetag);
+  div.appendChild(pTag);
+  div.appendChild(priceTag);
   container.appendChild(div);
 }
+/* const todosFromString = localStorage.getItem("myTodos"); */
+
+/* let toDos = JSON.parse(todosFromString) || myToDos; */
+
+// for (let i = 0; i < candys.length; i++) {
+//   let div = document.createElement("div") as HTMLDivElement;
+//   div.classList.add("checkout");
+
+//   let img = document.createElement("img") as HTMLImageElement;
+//   img.src = candys[i].img;
+//   img.classList.add("checkout__img");
+
+//   let info = document.createElement("div") as HTMLDivElement;
+//   info.classList.add("checkout__info");
+
+//   let pTag = document.createElement("p") as HTMLParagraphElement;
+//   pTag.innerHTML = candys[i].name;
+//   pTag.classList.add("candy");
+
+//   let pricetag = document.createElement("p") as HTMLParagraphElement;
+//   pricetag.innerHTML = String(`Pris: ${candys[i].price} kr`);
+//   pricetag.classList.add("price");
+
+//   div.appendChild(img);
+//   div.appendChild(info);
+//   info.appendChild(pTag);
+//   info.appendChild(pricetag);
+//   container.appendChild(div);
+// }
 
 //
 
