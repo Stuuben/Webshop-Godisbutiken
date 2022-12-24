@@ -17,6 +17,9 @@ for (let i = 0; i < candyBajs.length; i++) {
 
 /* let toDos = JSON.parse(todosFromString) || myToDos; */
 
+
+// localStorage.clear();
+
 for (let i = 0; i < candys.length; i++) {
   let div = document.createElement("div") as HTMLDivElement;
   div.classList.add("checkout");
