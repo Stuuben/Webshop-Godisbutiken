@@ -5,16 +5,17 @@ let container = document.getElementById(
 ) as HTMLDivElement;
 
 let godis: string = "godis";
+
+//Hämtar från localstorage
 let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
 
+//Omvandlar objekten från LS till nya objekt
 let candyAgain = candyObj.map((candy) => {
   return new Candy(candy.name, candy.price, candy.type, candy.img);
 });
 
-let cartItems: any = [];
-cartItems.push(candyAgain);
-
-function handleCandyItems() {
+//Loopar igenom de nya objekten
+function localStorageHTML() {
   for (let i = 0; i < candyAgain.length; i++) {
     console.log(candyAgain[i]);
 
@@ -45,7 +46,7 @@ function handleCandyItems() {
   }
 }
 
-handleCandyItems();
+localStorageHTML();
 
 console.log("shoppingcart");
 
