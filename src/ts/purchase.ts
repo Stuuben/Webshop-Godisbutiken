@@ -1,13 +1,13 @@
-import { nameValue } from "./paymentsite";
+let testName :string = "hej";
 
 
-function showUserName() {
-    console.log("hej");
-    console.log(nameValue);
+let userLS = JSON.parse(localStorage.getItem("user") || testName);
 
+function printUserName() {
+    console.log(userLS);
+
+    let spanTag = document.getElementById("purchaseUser") as HTMLSpanElement;
+    spanTag.innerHTML = String(userLS);
 }
 
-showUserName();
-
-
-// console.log(nameValue);
+printUserName();
