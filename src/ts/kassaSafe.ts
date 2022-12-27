@@ -1,18 +1,5 @@
 import { Candy, candys } from "./main";
 
-class Cart {
-  name: string;
-  price: number;
-  amount: number;
-  img: string;
-  constructor(name: string, price: number, amount: number, img: string) {
-    this.name = name;
-    this.price = price;
-    this.amount = 1;
-    this.img = img;
-  }
-}
-
 let container = document.getElementById(
   "checkout__container"
 ) as HTMLDivElement;
@@ -24,11 +11,9 @@ let godis: string = "godis";
 let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
 
 //Omvandlar objekten från LS till nya objekt
-let candyAgain = candyObj.map(
-  (candy: { name: string; price: number; amount: number; img: string }) => {
-    return new Cart(candy.name, candy.price, candy.amount, candy.img);
-  }
-);
+let candyAgain = candyObj.map((candy) => {
+  return new Candy(candy.name, candy.price, candy.type, candy.img);
+});
 
 //Loopar igenom de nya objekten
 function localStorageHTML() {

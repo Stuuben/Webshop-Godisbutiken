@@ -5,12 +5,13 @@ export class Candy {
   price: number;
   type: string;
   img: string;
-
+  amount: number;
   constructor(name: string, price: number, type: string, img: string) {
     this.name = name;
     this.price = price;
     this.type = type;
     this.img = img;
+    this.amount = 1;
   }
 }
 
