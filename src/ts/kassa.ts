@@ -4,6 +4,7 @@ let container = document.getElementById(
   "checkout__container"
 ) as HTMLDivElement;
 
+//Sträng för null i LS
 let godis: string = "godis";
 
 //Hämtar från localstorage
