@@ -1,26 +1,14 @@
 let confirmBuy = document.getElementById("confirmButton") as HTMLButtonElement;
 
-// export const userName = (
-//   document.getElementById("firstname") as HTMLInputElement
-// ).value;
-
-export const userName = document.getElementById(
-  "firstname"
-) as HTMLInputElement | null;
+let userName = document.getElementById("firstname") as HTMLInputElement;
 
 confirmBuy.addEventListener("click", customerPurchase);
 
-function customerPurchase(e: { preventDefault: () => void }) {
-  e.preventDefault();
-  console.log("handlat");
-  console.log(userName?.value);
+function customerPurchase() {
+  console.log(userName.value);
 
-  document.location.href = "/pages/purchase.html";
+  let userString = JSON.stringify(userName.value);
+  localStorage.setItem("user", userString);
 
-  // if (userName.value.length > 1) {
-
-  // console.log("längre än 1");
-  // } else {
-  //   console.log("else");
-  // }
+  document.location.href = "./../pages/purchase.html";
 }
