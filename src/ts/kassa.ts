@@ -11,11 +11,9 @@ let godis: string = "godis";
 let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
 
 //Omvandlar objekten från LS till nya objekt
-let candyAgain = candyObj.map(
-  (candy: { name: string; price: number; type: string; img: string }) => {
-    return new Candy(candy.name, candy.price, candy.type, candy.img);
-  }
-);
+let candyAgain = candyObj.map((candy) => {
+  return new Candy(candy.name, candy.price, candy.type, candy.img);
+});
 
 //Loopar igenom de nya objekten
 function localStorageHTML() {
