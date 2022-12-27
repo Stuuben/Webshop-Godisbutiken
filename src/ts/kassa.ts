@@ -17,9 +17,9 @@ let candyAgain = candyObj.map((candy) => {
 
 //Loopar igenom de nya objekten
 function localStorageHTML() {
-  for (let i = 0; i < candyAgain.length; i++) {
-    console.log(candyAgain[i]);
+  // localStorage.clear();
 
+  for (let i = 0; i < candys.length; i++) {
     let div = document.createElement("div") as HTMLDivElement;
     div.classList.add("checkout");
 
