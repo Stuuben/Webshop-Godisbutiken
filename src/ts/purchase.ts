@@ -1,18 +1,9 @@
-import { candyAgain } from "./kassa";
-// console.log(candyAgain);
+import { userName } from "./paymentsite";
 
-function clearRegister() {
-    
+function showUserName() {
+  console.log("hallå");
+  let spanTag = document.getElementById("purchaseUser") as HTMLSpanElement;
+  spanTag.innerHTML = "namn";
 }
 
-// import { userName } from "./paymentsite";
-
-// let name = document.getElementById("purchaseUser") as HTMLSpanElement;
-
-// export function showName() {
-    
-//     // candyAgain.lenght = 0;
-// //  name.innerHTML = userName;
-// }
-
-// showName();
+showUserName();
