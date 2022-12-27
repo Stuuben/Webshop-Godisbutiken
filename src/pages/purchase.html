@@ -8,15 +8,8 @@
       src="https://kit.fontawesome.com/d83948a257.js"
       crossorigin="anonymous"
     ></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="/src/scss/main.scss" />
-    <script src="/src/ts/main.ts" type="module" defer></script>
+    <script src="/src/ts/purchase.ts" type="module" defer></script>
 
     <title>Godisbutiken</title>
   </head>
@@ -30,15 +23,12 @@
             <label class="menu-button-container" for="menu-toggle">
               <div class="menu-button"></div>
             </label>
-
             <img src="/src/assets/klubbor.png" class="logo" alt="lollipops" />
-            <a href="pages/kassa.html"
-              ><i class="fa-solid fa-cart-shopping"></i
-            ></a>
+            <a href="kassa.html"><i class="fa-solid fa-cart-shopping"></i></a>
 
             <ul class="menu">
-              <li><a href="index.html">Hem</a></li>
-              <li><a href="pages/products.html">Produkter</a></li>
+              <li><a href="../index.html">Hem</a></li>
+              <li><a href="products.html">Produkter</a></li>
               <li><a href="#contact">Kontakt</a></li>
             </ul>
           </div>
@@ -46,20 +36,15 @@
       </header>
     </div>
 
-    <main class="landingMain">
-      <h1>Godisbutiken</h1>
-      <p class="welcomeText">
-        Välkommen till Godisbutiken! Vi säljer färskt godis av högsta kvalitet till ett lågt pris. Godisbutiken erbjuder tre olika sorter: surt, choklad och hallongodisar.
-      </p>
-      <img src="assets/godis_landningssida.jpeg" alt="bild från godisbutiken" />
-
-      <!-- <a href="pages/paymentsite.html">Betalning</a>
-      <a href="pages/kassa.html">KASSAAAA</a>
-      <a href="pages/purchase.html">Tack för ditt köp</a> -->
+    <main class="purchase">
+      <h2 id="purchaseHeading">
+        Tack för ditt köp, <span id="purchaseUser"></span>!
+      </h2>
+      <p>Du har ordernummer <span>E0002218515</span></p>
     </main>
 
     <footer class="contact" id="contact">
-      <div class="contact__container">
+      <div>
         <ul>
           <li>Telefonnummer: 070-123 44 55</li>
           <li>Email: Info@Godisbutiken.se</li>

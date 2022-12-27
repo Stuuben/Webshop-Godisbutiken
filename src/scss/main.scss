@@ -5,6 +5,7 @@
 body {
   background-color: var.$fifth;
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 //Navigering
@@ -32,6 +33,15 @@ nav {
 .landingMain {
   @include mixins.main;
   min-height: 78vh;
+
+  @include mixins.tablet {
+    text-align: left;
+    margin-bottom: 5%;
+
+    .welcomeText {
+      width: 50vw;
+    }
+  }
 }
 
 .shoppingh1 {
@@ -247,5 +257,15 @@ nav {
   @include mixins.tablet {
     flex-direction: column;
     width: 50%;
+  }
+}
+
+.purchase {
+  @include mixins.purchase;
+
+  @include mixins.tablet {
+    justify-content: flex-start;
+    margin: 2%;
+    height: 80vh;
   }
 }

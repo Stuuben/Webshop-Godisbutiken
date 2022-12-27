@@ -1,11 +1,11 @@
-import { candys } from "./main";
-
 let confirmBuy = document.getElementById("confirmButton") as HTMLButtonElement;
+
+export const userName = (document.getElementById("firstname") as HTMLInputElement).value;
 
 confirmBuy.addEventListener("click", customerPurchase);
 
 function customerPurchase() {
-  console.log("Köpt");
-  alert("Du har köpt!");
-  candys.length = 0;
+  console.log("handlat");
+  document.location.href = "/pages/purchase.html";
 }
+
