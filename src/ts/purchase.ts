@@ -1,9 +1,13 @@
-import { userName } from "./paymentsite";
+import { nameValue } from "./paymentsite";
+
 
 function showUserName() {
-  console.log("hallå");
-  let spanTag = document.getElementById("purchaseUser") as HTMLSpanElement;
-  spanTag.innerHTML = "namn";
+    console.log("hej");
+    console.log(nameValue);
+
 }
 
 showUserName();
+
+
+// console.log(nameValue);

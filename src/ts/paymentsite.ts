@@ -4,23 +4,19 @@ let confirmBuy = document.getElementById("confirmButton") as HTMLButtonElement;
 //   document.getElementById("firstname") as HTMLInputElement
 // ).value;
 
-export const userName = document.getElementById("firstname") as HTMLInputElement | null;
+let userName = document.getElementById("firstname") as HTMLInputElement;
+
 
 confirmBuy.addEventListener("click", customerPurchase);
 
-function customerPurchase(e) {
-  e.preventDefault();
-  console.log("handlat");
-  console.log(userName?.value);
+
+function customerPurchase() {
+  console.log(userName.value);
+
+  // let pTag = document.getElementById("hej") as HTMLParagraphElement;
+  // pTag.innerHTML = userName.value;
 
   document.location.href = "/pages/purchase.html";
-
-  // if (userName.value.length > 1) {
-
-   
-
-    // console.log("längre än 1");
-  // } else {
-  //   console.log("else");
-  // }
 }
+
+export let nameValue = userName.value;
