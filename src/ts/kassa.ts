@@ -135,10 +135,6 @@ function handleShoppinglist() {
     candyName.appendChild(candyPrice);
     shoppingCart.appendChild(candyItemWrapper);
 
-    /*    if (candyAgain[i].name === candyAgain[i].name) {
-      candyAgain.pop();
-    }
-    console.log(candyAgain); */
     removeDoubles();
   }
 }
