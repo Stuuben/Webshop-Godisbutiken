@@ -80,6 +80,7 @@ trashcan.addEventListener("click", () => {
   ) as HTMLParagraphElement;
   summary.innerHTML = "";
   candyAgain.length = 0;
+  localStorage.clear();
 
   console.log(candyAgain);
   handleShoppinglist();
@@ -168,7 +169,7 @@ handleSummary();
 function subtrackCandy(i: number) {
   console.log("click-");
   console.log(candyAgain[i].price);
-
+  localStorage.removeItem(candyAgain[i]);
   candyAgain.splice(i, 1);
 
   handleShoppinglist();
@@ -181,6 +182,7 @@ function removeDoubles() {
       if (i !== x) {
         if (candyAgain[i].name === candyAgain[x].name) {
           candyAgain.splice(x, 1);
+          candyAgain[i].amount++;
         }
       }
     }
