@@ -8,7 +8,6 @@ confirmBuy.addEventListener("click", customerPurchase);
 
 function customerPurchase() {
   console.log(userName.value);
-  candyAgain.length = 0;
 
   if (userName.value.length > 1) {
     let userString = JSON.stringify(userName.value);
