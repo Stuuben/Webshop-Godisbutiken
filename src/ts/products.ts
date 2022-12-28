@@ -16,6 +16,10 @@ function createHTML() {
     let h3 = document.createElement("h3") as HTMLHeadingElement;
     h3.innerHTML = candys[i].name;
 
+    let pDesc = document.createElement("p") as HTMLParagraphElement;
+    pDesc.classList.add("product__desc");
+    pDesc.innerHTML = candys[i].desc;
+
     let pTag = document.createElement("pTag") as HTMLParagraphElement;
     pTag.innerHTML = String(`Pris: ${candys[i].price} kr`);
     pTag.classList.add("candyPrice");
@@ -29,6 +33,7 @@ function createHTML() {
 
     div.appendChild(img);
     div.appendChild(h3);
+    div.appendChild(pDesc);
     div.appendChild(pTag);
     div.appendChild(buyBtn);
     container.appendChild(div);

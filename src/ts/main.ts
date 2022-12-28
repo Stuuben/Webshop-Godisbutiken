@@ -5,12 +5,20 @@ export class Candy {
   price: number;
   type: string;
   img: string;
+  desc: string;
 
-  constructor(name: string, price: number, type: string, img: string) {
+  constructor(
+    name: string,
+    price: number,
+    type: string,
+    img: string,
+    desc: string
+  ) {
     this.name = name;
     this.price = price;
     this.type = type;
     this.img = img;
+    this.desc = desc;
   }
 }
 
@@ -18,29 +26,57 @@ let fizzyBubliz = new Candy(
   "Fizzy Bubliz",
   6,
   "Sur",
-  "/fizzybubbliz.2140eb84.png"
+  "/fizzybubbliz.2140eb84.png",
+  "Fizzy Bubblizz är en rosa och blå flaska med en mjuk konsistens och har en smak av bubbelgum."
 );
 let peanutSquare = new Candy(
   "Jordnötsruta",
   5,
   "Choklad",
-  "/jordnotsruta.0741e7ef.png"
+  "/jordnotsruta.0741e7ef.png",
+  "Knapriga jordnötskross i mörk choklad."
 );
 let punsch = new Candy(
   "Punschpralin",
   4.5,
   "Choklad",
-  "/punschpraliner.9409834c.jpeg"
+  "/punschpraliner.9409834c.jpeg",
+  " Den härliga pralinen har smak av arrak och rom, har ett överdrag av smakrik choklad och är toppad med sockerpärlor."
 );
-let sourNapps = new Candy("Sura Nappar", 5, "Sur", "/suranappar.2ab93ae2.jpg");
-let geisha = new Candy("Geisha", 8, "Choklad", "/geisha.39b044ab.jpg");
-let ferrari = new Candy("Ferrari", 5, "Hallon", "/ferrari.4eefc7a1.png");
-let marabou = new Candy("Marabou", 8, "Choklad", "/marabou.f77e3111.png");
+let sourNapps = new Candy(
+  "Sura Nappar",
+  5,
+  "Sur",
+  "/suranappar.2ab93ae2.jpg",
+  "Sursockrad gelé med colasmak"
+);
+let geisha = new Candy(
+  "Geisha",
+  8,
+  "Choklad",
+  "/geisha.39b044ab.jpg",
+  "Mjölkchoklad med krispig nötnougat"
+);
+let ferrari = new Candy(
+  "Ferrari",
+  5,
+  "Hallon",
+  "/ferrari.4eefc7a1.png",
+  "Röda sega godisar med smak av hallon. Den är formad efter en ferraribil och har en söt smak."
+);
+let marabou = new Candy(
+  "Marabou",
+  8,
+  "Choklad",
+  "/marabou.f77e3111.png",
+  "Marabou mjölkchoklad är Sveriges allra mest älskade choklad. Det smidiga mini-formatet gör att det blir lätt att ta med."
+);
 let rassberrySkull = new Candy(
   "Hallonlakritsskalle",
   5.5,
   "Hallon",
-  "/hallonlakrits.64cd7f44.png"
+  "/hallonlakrits.64cd7f44.png",
+  "Den är en söt och salt dröm med en spännande form."
 );
 
 export let candys: Candy[] = [
@@ -53,37 +89,3 @@ export let candys: Candy[] = [
   marabou,
   rassberrySkull,
 ];
-
-// console.log(candys);
-
-// type CartItem = {
-//   product:Candy;
-//   amount:number;
-// }
-
-// class Cart {
-//   items: CartItem[]
-
-//   get totalPrice() {
-//     return this.items.reduce((total, item) => total + item.product.price * item.amount, 0 );
-
-//     // let sum = 0;
-//     // for (const item of this.items) {
-//     //   sum += item.product.price * item.amount;
-//     // }
-//   }
-
-//   add(item) {
-//     this.items.push(item);
-//   }
-
-//   remove(item, amount) {
-//     // remove item from items
-//   }
-// }
-/* 
-type CartItem = {
-  product:Candy;
-  amount:number;
-}
-let ShoppingCart: CartItem [] = [{product:fizzyBubliz, amount:2}] */

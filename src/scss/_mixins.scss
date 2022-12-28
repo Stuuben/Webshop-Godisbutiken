@@ -24,7 +24,6 @@
   flex-direction: column;
   align-items: center;
 
-
   h1 {
     font-family: "Bangers", cursive;
     font-size: 4em;
@@ -104,7 +103,9 @@
     width: 50%;
     padding: 5%;
   }
-
+  .product__desc {
+    font-size: 13px;
+  }
   p {
     width: 90%;
     text-align: center;
