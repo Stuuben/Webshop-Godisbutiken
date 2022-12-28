@@ -47,7 +47,11 @@ nav {
     margin-bottom: 5%;
 
     .welcomeText {
-      width: 50vw;
+      width: 60%;
+    }
+
+    .img__container {
+      width: 70%;
     }
   }
 }
@@ -76,7 +80,7 @@ nav {
 }
 
 //Ikoner
-.fa-solid {
+.fa-cart-shopping {
   color: var.$third;
   font-size: 2em;
   transition: transform 0.2s linear;
