@@ -40,7 +40,7 @@ nav {
 //Landningssida
 .landingMain {
   @include mixins.main;
-  min-height: 78vh;
+  height: 80vh;
 
   @include mixins.tablet {
     text-align: left;

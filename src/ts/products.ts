@@ -51,16 +51,6 @@ function handleClick(godis: Candy) {
 
 let filter = " ";
 
-//
-/* const todosFromString = localStorage.getItem("myTodos");
-
-let toDos = JSON.parse(todosFromString) || myToDos;
-
-
-const toDosString = JSON.stringify(toDos);
-localStorage.setItem("myTodos", toDosString); */
-//
-
 //Checkbox för sura godisar
 let checkAll = document.getElementById("filterAll") as HTMLInputElement;
 let checkboxSour = document.getElementById("filterSour") as HTMLInputElement;
