@@ -1,5 +1,3 @@
-import { Candy, candys } from "./main";
-
 class Cart {
   name: string;
   price: number;
@@ -134,6 +132,12 @@ function handleShoppinglist() {
 
     candyName.appendChild(candyPrice);
     shoppingCart.appendChild(candyItemWrapper);
+
+    /*    if (candyAgain[i].name === candyAgain[i].name) {
+      candyAgain.pop();
+    }
+    console.log(candyAgain); */
+    removeDoubles();
   }
 }
 handleShoppinglist();
@@ -171,4 +175,18 @@ function subtrackCandy(i: number) {
 
   handleShoppinglist();
   handleSummary();
+}
+
+function removeDoubles() {
+  for (let i = 0; i < candyAgain.length; i++) {
+    for (let x = 0; x < candyAgain.length; ++x) {
+      if (i !== x) {
+        if (candyAgain[i].name === candyAgain[x].name) {
+          candyAgain.splice(x, 1);
+        }
+      }
+    }
+  }
+
+  console.log(candyAgain);
 }
