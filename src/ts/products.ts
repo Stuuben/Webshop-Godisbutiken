@@ -42,12 +42,36 @@ function createHTML() {
 }
 //Köp knappen
 function handleClick(godis: Candy) {
-  boughtCandy.push(godis);
+  // boughtCandy.push(godis);
+  // let candyLS = localStorage.getItem("godis");
+  // let customerCandystring = JSON.stringify(boughtCandy);
+  // localStorage.setItem("godis", customerCandystring);
 
-  let customerCandystring = JSON.stringify(boughtCandy);
-  localStorage.setItem("godis", customerCandystring);
+  let candyLS = localStorage.getItem("godis");
 
-  console.log("Köpt: ", godis);
+  if(candyLS === null) {
+    boughtCandy.push(godis);
+    let customerCandystring = JSON.stringify(boughtCandy);
+    localStorage.setItem("godis", customerCandystring);
+  } else {
+    let getCurrentCandy :any = localStorage.getItem("godis");
+    let currentCandy = JSON.parse(getCurrentCandy);
+    currentCandy.push(godis);
+    localStorage.setItem("godis", JSON.stringify(currentCandy));
+  }
+
+  // if (candyLS === null) {
+  //   boughtCandy.push(godis);
+  //   let customerCandystring = JSON.stringify(boughtCandy);
+  //   localStorage.setItem("godis", customerCandystring);
+  // } else {
+  //   let getCurrentCandy :any= localStorage.getItem("candy");
+  //   let currentCandy = JSON.parse(getCurrentCandy) || ("[]");
+  //   currentCandy.push(godis);
+
+  //   localStorage.setItem("godis", JSON.stringify(currentCandy));
+  // }
+  // boughtCandy.push(godis);
 }
 
 let filter = " ";

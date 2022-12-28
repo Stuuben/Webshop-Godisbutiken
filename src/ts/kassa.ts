@@ -21,7 +21,11 @@ let container = document.getElementById(
 let godis: string = "godis";
 
 //Hämtar från localstorage
+
+
 let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
+
+
 
 //Omvandlar objekten från LS till nya objekt
 export let candyAgain = candyObj.map(
@@ -29,6 +33,7 @@ export let candyAgain = candyObj.map(
     return new Cart(candy.name, candy.price, candy.amount, candy.img);
   }
 );
+
 
 //Loopar igenom de nya objekten
 function localStorageHTML() {
