@@ -6,8 +6,18 @@ let userLS = JSON.parse(localStorage.getItem("user") || testName);
 
 function printUserName() {
   console.log(userLS);
-  console.log(testName);
+
   let spanTag = document.getElementById("purchaseUser") as HTMLSpanElement;
   spanTag.innerHTML = String(userLS);
 }
 printUserName();
+
+function uniqID() {
+  console.log("kik");
+  let orderNr = document.getElementById("best") as HTMLSpanElement;
+
+  const id = Date.now().toString();
+
+  orderNr.innerText = "E" + id;
+}
+uniqID();
