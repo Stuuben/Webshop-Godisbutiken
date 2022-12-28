@@ -24,7 +24,6 @@
   flex-direction: column;
   align-items: center;
 
-
   h1 {
     font-family: "Bangers", cursive;
     font-size: 4em;
@@ -67,6 +66,7 @@
     gap: 15px;
     background-color: white;
     height: 20vh;
+    color:rgb(61, 38, 42);
   }
 
   .checkout__img {
@@ -98,7 +98,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid var.$primary;
+  border: 1px solid lightgray;
+  font-size: 0.9em;
+  color: rgb(61, 38, 42);
 
   .product__img {
     width: 50%;
@@ -129,20 +131,27 @@
 }
 
 //Filtrering Produktsida
+.product__title {
+  padding-top: 1%;
+
+}
 @mixin filterCandy {
   display: flex;
-  padding-left: 10px;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: rgb(61, 38, 42);
 
   .filter__text {
     font-weight: bold;
+    color: rgb(61, 38, 42);
   }
 
-  label {
-    gap: 5px;
+  .filterAll {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
   }
+  
 }
 
 //Formuläret
