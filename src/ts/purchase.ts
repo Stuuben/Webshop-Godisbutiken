@@ -1,13 +1,12 @@
-let testName :string = "hej";
-
+let testName: string = "hej";
 
 let userLS = JSON.parse(localStorage.getItem("user") || testName);
 
 function printUserName() {
-    console.log(userLS);
+  console.log(userLS);
 
-    let spanTag = document.getElementById("purchaseUser") as HTMLSpanElement;
-    spanTag.innerHTML = String(userLS);
+  let spanTag = document.getElementById("purchaseUser") as HTMLSpanElement;
+  spanTag.innerHTML = String(userLS);
 }
 
 printUserName();
