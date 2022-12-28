@@ -119,10 +119,11 @@ function handleShoppinglist() {
     numberInput.value = candyAgain[i].amount.toString();
 
     numberInput.addEventListener("input", (event) => {
-      const value = (event.target as HTMLInputElement).value;
-      candyAgain[i].amount = Number(value);
+      let value :any = (event.target as HTMLInputElement).value;
+      candyAgain[i].amount = value;
+
       handleSummary();
-    });
+    }); 
 
     minusButton.addEventListener("click", () => subtrackCandy(i));
     // plusButton.addEventListener("click", () => addCandy(i));
