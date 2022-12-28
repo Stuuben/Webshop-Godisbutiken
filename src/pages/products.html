@@ -8,6 +8,14 @@
       src="https://kit.fontawesome.com/d83948a257.js"
       crossorigin="anonymous"
     ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    
     <link rel="stylesheet" href="/src/scss/main.scss" />
     <script src="/src/ts/products.ts" type="module" defer></script>
 
@@ -36,11 +44,14 @@
       </header>
     </div>
 
+
+
+    <h1 class="product__title">Produkter</h1>
     <section class="filter__container">
       <p class="filter__text">Filtrera bland smak:</p>
       <div class="filter">
-        <label for="filterSour">Se alla</label
-        ><input type="radio" value="all" id="filterAll" name="candy" />
+  
+        
         <label for="filterSour">Sur</label
         ><input type="radio" value="sour" id="filterSour" name="candy" />
         <label for="filterChocolate">Choklad</label
@@ -57,10 +68,12 @@
           id="filterRaspberry"
           name="candy"
         />
+         
+       <div class="filterAll"> <label for="filterSour">Se alla</label
+        ><input type="radio" value="all" id="filterAll" name="candy" />
+      </div>
       </div>
     </section>
-
-    <h1 class="product__title">Produkter</h1>
     <main class="product__main" id="main"></main>
 
     <footer class="contact" id="contact">
