@@ -13,7 +13,6 @@ function printUserName() {
 printUserName();
 
 function uniqID() {
-  console.log("kik");
   let orderNr = document.getElementById("uniqeNr") as HTMLSpanElement;
 
   const id = Date.now().toString();
