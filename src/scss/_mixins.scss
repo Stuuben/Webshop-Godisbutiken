@@ -1,5 +1,6 @@
 @use "variables" as var;
 
+//Responsivitet
 @mixin tablet {
   @media screen and (min-width: 700px) {
     @content;
@@ -9,6 +10,14 @@
 //Navigering
 @mixin nav-bar {
   background-color: var.$primary;
+
+  li {
+    transition: background-color 0.3s linear;
+
+    &:hover {
+      background-color: var.$secondary;
+    }
+  }
 
   a {
     text-decoration: none;
@@ -25,8 +34,8 @@
   align-items: center;
 
   h1 {
-    font-family: "Bangers", cursive;
-    font-size: 4em;
+    font-family: "Unbounded", cursive;
+    font-size: 3em;
     color: var.$fourth;
   }
 
@@ -35,6 +44,7 @@
   }
 }
 
+//Footer
 @mixin footer {
   background-color: var.$primary;
   display: flex;
@@ -49,6 +59,7 @@
     gap: 10px;
     padding: 0;
     padding-left: 10px;
+    color: rgb(61, 38, 42);
   }
 }
 
@@ -66,7 +77,6 @@
     gap: 15px;
     background-color: white;
     height: 20vh;
-    color:rgb(61, 38, 42);
   }
 
   .checkout__img {
@@ -106,12 +116,12 @@
     width: 50%;
     padding: 5%;
   }
+
   .product__desc {
     font-size: 13px;
-  }
-  p {
     width: 90%;
     text-align: center;
+    color: rgb(61, 38, 42);
   }
 
   .candyPrice {
@@ -127,7 +137,7 @@
     border-radius: 15%;
 
     &:hover {
-      background-color: var.$secondary;
+      background-color: var.$third;
     }
   }
 }
@@ -135,7 +145,6 @@
 //Filtrering Produktsida
 .product__title {
   padding-top: 1%;
-
 }
 @mixin filterCandy {
   display: flex;
@@ -153,61 +162,24 @@
     justify-content: center;
     margin: 2%;
   }
-  
+}
+@mixin payment {
+  display: flex;
+  color: rgb(61, 38, 42);
+  justify-content: center;
+  align-items: center;
 }
 
 //Formuläret
 @mixin contactInfo {
-  width: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-weight: bold;
 
   input {
-    padding: 4px;
-  }
-}
-
-@mixin payment {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  input {
-    padding: 4px;
-  }
-}
-
-//Accepterade kort
-@mixin acceptedCards {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-  border: 3px solid var.$primary;
-  background-color: white;
-  margin: 1%;
-
-  .acceptedCards__text {
-    font-weight: bold;
-    font-size: 1.2em;
-    text-align: center;
-  }
-
-  i {
-    padding: 5px;
-    font-size: 2.8em;
-  }
-
-  .fa-cc-visa {
-    color: blue;
-  }
-
-  .fa-cc-mastercard {
-    color: red;
+    padding: 3px;
+    margin-bottom: 5px;
+    margin-right: 8px;
   }
 }
 
@@ -219,7 +191,14 @@
   margin: 4%;
 
   button {
-    padding: 10px;
+    padding: 15px;
+    background-color: var.$primary;
+    border: none;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: var.$third;
+    }
   }
 }
 
@@ -229,10 +208,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-
-  // &__container {
-  //   display: flex;
-  // }
+  color: rgb(61, 38, 42);
 
   span {
     font-weight: bold;
