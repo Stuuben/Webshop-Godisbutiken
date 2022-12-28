@@ -1,3 +1,4 @@
+import { candyAgain } from "./kassa";
 import { Candy, candys } from "./main";
 
 let container = document.getElementById("main") as HTMLDivElement;

@@ -1,3 +1,4 @@
+import { candyAgain } from "./kassa";
 import { candys } from "./main";
 
 let confirmBuy = document.getElementById("confirmButton") as HTMLButtonElement;
@@ -8,7 +9,7 @@ confirmBuy.addEventListener("click", customerPurchase);
 
 function customerPurchase() {
   console.log(userName.value);
-
+  localStorage.clear();
   if (userName.value.length > 1) {
     let userString = JSON.stringify(userName.value);
     localStorage.setItem("user", userString);
