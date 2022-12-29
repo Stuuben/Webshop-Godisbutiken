@@ -1,3 +1,4 @@
+import { candyAgain } from "./kassa";
 import { Candy, candys } from "./main";
 
 let container = document.getElementById("main") as HTMLDivElement;
@@ -16,6 +17,10 @@ function createHTML() {
     let h3 = document.createElement("h3") as HTMLHeadingElement;
     h3.innerHTML = candys[i].name;
 
+    let pDesc = document.createElement("p") as HTMLParagraphElement;
+    pDesc.classList.add("product__desc");
+    pDesc.innerHTML = candys[i].desc;
+
     let pTag = document.createElement("pTag") as HTMLParagraphElement;
     pTag.innerHTML = String(`Pris: ${candys[i].price} kr`);
     pTag.classList.add("candyPrice");
@@ -29,6 +34,7 @@ function createHTML() {
 
     div.appendChild(img);
     div.appendChild(h3);
+    div.appendChild(pDesc);
     div.appendChild(pTag);
     div.appendChild(buyBtn);
     container.appendChild(div);
@@ -36,25 +42,39 @@ function createHTML() {
 }
 //Köp knappen
 function handleClick(godis: Candy) {
-  boughtCandy.push(godis);
+  // boughtCandy.push(godis);
+  // let candyLS = localStorage.getItem("godis");
+  // let customerCandystring = JSON.stringify(boughtCandy);
+  // localStorage.setItem("godis", customerCandystring);
 
-  let customerCandystring = JSON.stringify(boughtCandy);
-  localStorage.setItem("godis", customerCandystring);
+  let candyLS = localStorage.getItem("godis");
 
-  console.log("Köpt: ", godis);
+  if(candyLS === null) {
+    boughtCandy.push(godis);
+    let customerCandystring = JSON.stringify(boughtCandy);
+    localStorage.setItem("godis", customerCandystring);
+  } else {
+    let getCurrentCandy :any = localStorage.getItem("godis");
+    let currentCandy = JSON.parse(getCurrentCandy);
+    currentCandy.push(godis);
+    localStorage.setItem("godis", JSON.stringify(currentCandy));
+  }
+
+  // if (candyLS === null) {
+  //   boughtCandy.push(godis);
+  //   let customerCandystring = JSON.stringify(boughtCandy);
+  //   localStorage.setItem("godis", customerCandystring);
+  // } else {
+  //   let getCurrentCandy :any= localStorage.getItem("candy");
+  //   let currentCandy = JSON.parse(getCurrentCandy) || ("[]");
+  //   currentCandy.push(godis);
+
+  //   localStorage.setItem("godis", JSON.stringify(currentCandy));
+  // }
+  // boughtCandy.push(godis);
 }
 
 let filter = " ";
-
-//
-/* const todosFromString = localStorage.getItem("myTodos");
-
-let toDos = JSON.parse(todosFromString) || myToDos;
-
-
-const toDosString = JSON.stringify(toDos);
-localStorage.setItem("myTodos", toDosString); */
-//
 
 //Checkbox för sura godisar
 let checkAll = document.getElementById("filterAll") as HTMLInputElement;

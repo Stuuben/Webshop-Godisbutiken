@@ -9,6 +9,14 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+//Headings
+.checkout__heading, .product__title, .paymentHeading {
+  color: var.$fourth;
+  font-family: 'Unbounded', cursive;
+  font-size: 3em;
+  text-align: center
+}
+
 //Navigering
 nav {
   @include hamburger.mobile-menu;
@@ -33,20 +41,20 @@ nav {
 //Landningssida
 .landingMain {
   @include mixins.main;
-  min-height: 78vh;
+  height: 80vh;
 
   @include mixins.tablet {
     text-align: left;
     margin-bottom: 5%;
 
     .welcomeText {
-      width: 50vw;
+      width: 60%;
+    }
+
+    .img__container {
+      width: 70%;
     }
   }
-}
-
-.shoppingh1 {
-  text-align: center;
 }
 
 //Footer
@@ -56,7 +64,7 @@ nav {
   @include mixins.tablet {
     display: flex;
     width: 100%;
-    height: 20vh;
+    height: 30vh;
 
     ul {
       display: flex;
@@ -73,9 +81,14 @@ nav {
 }
 
 //Ikoner
-.fa-solid {
+.fa-cart-shopping {
   color: var.$third;
   font-size: 2em;
+  transition: transform 0.2s linear;
+
+  &:hover {
+    transform: scale(1.1);
+  }
 
   @include mixins.tablet {
     font-size: 2.5em;
@@ -91,18 +104,20 @@ nav {
 //Varukorg
 .shoppingcart {
   background-color: white;
-  border: 1px black solid;
+  border: 1px lightgray solid;
   margin: 20px;
   text-align: left;
+  color:rgb(61, 38, 42);
 
   .fa-trash {
     font-size: 1.5rem;
     display: flex;
     justify-content: end;
+    color: var.$primary;
     padding-right: 0.7rem;
     &:hover {
       cursor: pointer;
-      color: rgb(226, 60, 60);
+      color: var.$third;
     }
   }
   h3 {
@@ -110,7 +125,7 @@ nav {
   }
 
   .input__number {
-    width: 2.5rem;
+    width: 2rem;
   }
   p.candy__name {
     margin: 0;
@@ -120,15 +135,30 @@ nav {
   button.button__minus {
     margin: 0.4rem;
     background-color: var.$primary;
-    border-color: var.$sixth;
+    border: none;
+    border-radius: 10px;
+    margin-left: 2px;
+    padding: 10px;
+
     &:hover {
-      background-color: rgb(226, 60, 60);
+      background-color: var.$third;
     }
   }
   .summa {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
+    button {
+      background-color: var.$primary;
+      border: none;
+      border-radius: 10px;
+      padding: 8px;
+
+      &:hover {
+        background-color: var.$third;
+      }
+    }
   }
   span {
     text-align: right;
@@ -137,7 +167,8 @@ nav {
     padding-right: 0.9rem;
   }
   .itemWrapper {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.238);
+    border-bottom: 1px solid lightgray;
+    padding: 5px;
     &:last-child {
       border-bottom: 0;
     }
@@ -151,7 +182,7 @@ nav {
     background-color: black;
   }
   .summa {
-    border-top: 1px solid black;
+    border-top: 1px solid lightgray;
   }
 }
 
@@ -182,10 +213,6 @@ nav {
 }
 
 //Produkter
-.product__title {
-  text-align: center;
-}
-
 .product__main {
   @include mixins.product__main;
 
@@ -209,33 +236,13 @@ nav {
   @include mixins.filterCandy;
 }
 
-.paymentHeading {
-  text-align: center;
-  font-size: 1.5em;
-}
-//Betalningsformulär för personuppgifter
-
 .payment {
   @include mixins.payment;
 }
 
-.contactInfo,
-.cardInfo {
+.contactInfo {
   @include mixins.contactInfo;
 
-  @include mixins.tablet {
-    width: 25%;
-  }
-}
-
-.acceptedCards {
-  @include mixins.acceptedCards;
-
-  @include mixins.tablet {
-    i {
-      font-size: 2.5em;
-    }
-  }
 }
 
 .confirm {

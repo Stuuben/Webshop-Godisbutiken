@@ -1,3 +1,5 @@
+import { Candy } from "./main";
+
 class Cart {
   name: string;
   price: number;
@@ -19,14 +21,19 @@ let container = document.getElementById(
 let godis: string = "godis";
 
 //Hämtar från localstorage
+
+
 let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
 
+
+
 //Omvandlar objekten från LS till nya objekt
-let candyAgain = candyObj.map(
+export let candyAgain = candyObj.map(
   (candy: { name: string; price: number; amount: number; img: string }) => {
     return new Cart(candy.name, candy.price, candy.amount, candy.img);
   }
 );
+
 
 //Loopar igenom de nya objekten
 function localStorageHTML() {
@@ -78,6 +85,7 @@ trashcan.addEventListener("click", () => {
   ) as HTMLParagraphElement;
   summary.innerHTML = "";
   candyAgain.length = 0;
+  localStorage.clear();
 
   console.log(candyAgain);
   handleShoppinglist();
@@ -111,10 +119,11 @@ function handleShoppinglist() {
     numberInput.value = candyAgain[i].amount.toString();
 
     numberInput.addEventListener("input", (event) => {
-      const value = (event.target as HTMLInputElement).value;
-      candyAgain[i].amount = Number(value);
+      let value :any = (event.target as HTMLInputElement).value;
+      candyAgain[i].amount = value;
+
       handleSummary();
-    });
+    }); 
 
     minusButton.addEventListener("click", () => subtrackCandy(i));
     // plusButton.addEventListener("click", () => addCandy(i));
@@ -133,10 +142,6 @@ function handleShoppinglist() {
     candyName.appendChild(candyPrice);
     shoppingCart.appendChild(candyItemWrapper);
 
-    /*    if (candyAgain[i].name === candyAgain[i].name) {
-      candyAgain.pop();
-    }
-    console.log(candyAgain); */
     removeDoubles();
   }
 }
@@ -170,7 +175,7 @@ handleSummary();
 function subtrackCandy(i: number) {
   console.log("click-");
   console.log(candyAgain[i].price);
-
+  localStorage.removeItem(candyAgain[i]);
   candyAgain.splice(i, 1);
 
   handleShoppinglist();
@@ -183,6 +188,7 @@ function removeDoubles() {
       if (i !== x) {
         if (candyAgain[i].name === candyAgain[x].name) {
           candyAgain.splice(x, 1);
+          candyAgain[i].amount++;
         }
       }
     }

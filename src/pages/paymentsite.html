@@ -8,6 +8,10 @@
       src="https://kit.fontawesome.com/d83948a257.js"
       crossorigin="anonymous"
     ></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Unbounded&display=swap" rel="stylesheet">
+
+
     <link rel="stylesheet" href="/src/scss/main.scss" />
     <script src="/src/ts/paymentsite.ts" type="module" defer></script>
 
@@ -40,20 +44,11 @@
       <h2 class="paymentHeading">Kortuppgifter</h2>
       <form>
         <div class="payment">
-          <div class="acceptedCards">
-            <p class="acceptedCards__text">Accepterade kort</p>
-            <p>
-              <i class="fa-brands fa-cc-visa" title="visa"></i
-              ><i class="fa-brands fa-cc-amex" title="amex"></i
-              ><i class="fa-brands fa-cc-mastercard" title="mastercard"></i>
-            </p>
-          </div>
 
           <div class="contactInfo">
             <label for="firstname">Förnamn: </label>
-            <input type="text" id="firstname" placeholder="Ange förnamn" />
+            <input type="text" id="firstname" placeholder="Ange förnamn">
             
-
             <label for="lastname">Efternamn: </label>
             <input type="text" id="lastname" />
 
@@ -65,14 +60,12 @@
 
             <label for="city">Stad: </label>
             <input type="text" id="city" />
-
-            <label for="zipCode">Postnummer: </label>
-            <input type="text" id="zipCode" />
           </div>
 
-          <div class="cardInfo">
-            <label for="cardName">Namn på kortet: </label>
-            <input type="text" id="cardName" />
+          <div class="contactInfo">
+
+            <label for="zipCode">Postnummera: </label>
+            <input type="text" id="zipCode" />
 
             <label for="cardNumber">Kortnummer: </label>
             <input type="text" id="cardNumber" />
@@ -87,20 +80,15 @@
             <input type="number" id="cvc" />
           </div>
         </div>
-
         <div class="confirm">
          
           <button type="button" class="confirmBuy" id="confirmButton">
             Bekräfta köp
           </button>
-
-          <p id="hej"></p>
-      </form>
       
-      <button id="fuskKnapp">ok</button>
-
-       
-      </div>
+      </form>
+    
+     
     </main>
 
     <footer class="contact" id="contact">

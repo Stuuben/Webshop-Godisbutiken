@@ -1,5 +1,6 @@
 @use "variables" as var;
 
+//Responsivitet
 @mixin tablet {
   @media screen and (min-width: 700px) {
     @content;
@@ -9,6 +10,14 @@
 //Navigering
 @mixin nav-bar {
   background-color: var.$primary;
+
+  li {
+    transition: background-color 0.3s linear;
+
+    &:hover {
+      background-color: var.$secondary;
+    }
+  }
 
   a {
     text-decoration: none;
@@ -24,24 +33,34 @@
   flex-direction: column;
   align-items: center;
 
-
   h1 {
-    font-family: "Bangers", cursive;
-    font-size: 4em;
+    font-family: "Unbounded", cursive;
+    font-size: 2.5em;
     color: var.$fourth;
   }
 
   .welcomeText {
-    width: 70vw;
+    width: 80%;
+  }
+
+  .img__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 80%;
+    }
   }
 }
 
+//Footer
 @mixin footer {
   background-color: var.$primary;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 30vh;
+  height: 70vh;
 
   ul {
     list-style-type: none;
@@ -49,7 +68,7 @@
     flex-direction: column;
     gap: 10px;
     padding: 0;
-    padding-left: 10px;
+    color: rgb(61, 38, 42);
   }
 }
 
@@ -98,16 +117,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid var.$primary;
+  border: 1px solid lightgray;
+  font-size: 0.9em;
+  color: rgb(61, 38, 42);
 
   .product__img {
     width: 50%;
     padding: 5%;
   }
 
-  p {
+  .product__desc {
+    font-size: 13px;
     width: 90%;
     text-align: center;
+    color: rgb(61, 38, 42);
   }
 
   .candyPrice {
@@ -123,80 +146,49 @@
     border-radius: 15%;
 
     &:hover {
-      background-color: var.$secondary;
+      background-color: var.$third;
     }
   }
 }
 
 //Filtrering Produktsida
+.product__title {
+  padding-top: 1%;
+}
 @mixin filterCandy {
   display: flex;
-  padding-left: 10px;
-  justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: rgb(61, 38, 42);
 
   .filter__text {
     font-weight: bold;
+    color: rgb(61, 38, 42);
   }
 
-  label {
-    gap: 5px;
+  .filterAll {
+    display: flex;
+    justify-content: center;
+    margin: 2%;
   }
+}
+@mixin payment {
+  display: flex;
+  color: rgb(61, 38, 42);
+  justify-content: center;
+  align-items: center;
 }
 
 //Formuläret
 @mixin contactInfo {
-  width: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-weight: bold;
 
   input {
-    padding: 4px;
-  }
-}
-
-@mixin payment {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  input {
-    padding: 4px;
-  }
-}
-
-//Accepterade kort
-@mixin acceptedCards {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-  border: 3px solid var.$primary;
-  background-color: white;
-  margin: 1%;
-
-  .acceptedCards__text {
-    font-weight: bold;
-    font-size: 1.2em;
-    text-align: center;
-  }
-
-  i {
-    padding: 5px;
-    font-size: 2.8em;
-  }
-
-  .fa-cc-visa {
-    color: blue;
-  }
-
-  .fa-cc-mastercard {
-    color: red;
+    padding: 3px;
+    margin-bottom: 5px;
+    margin-right: 8px;
   }
 }
 
@@ -208,7 +200,14 @@
   margin: 4%;
 
   button {
-    padding: 10px;
+    padding: 15px;
+    background-color: var.$primary;
+    border: none;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: var.$third;
+    }
   }
 }
 
@@ -218,10 +217,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-
-  // &__container {
-  //   display: flex;
-  // }
+  color: rgb(61, 38, 42);
 
   span {
     font-weight: bold;
