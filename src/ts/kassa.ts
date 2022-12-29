@@ -22,10 +22,7 @@ let godis: string = "godis";
 
 //Hämtar från localstorage
 
-
 let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
-
-
 
 //Omvandlar objekten från LS till nya objekt
 export let candyAgain = candyObj.map(
@@ -33,7 +30,6 @@ export let candyAgain = candyObj.map(
     return new Cart(candy.name, candy.price, candy.amount, candy.img);
   }
 );
-
 
 //Loopar igenom de nya objekten
 function localStorageHTML() {
@@ -83,12 +79,15 @@ trashcan.addEventListener("click", () => {
   let summary = document.getElementById(
     "item__summary"
   ) as HTMLParagraphElement;
-  summary.innerHTML = "";
-  candyAgain.length = 0;
-  localStorage.clear();
 
-  console.log(candyAgain);
-  handleShoppinglist();
+  if (confirm("Är du säker på att du vill tömma hela varukorgen?")) {
+    summary.innerHTML = "";
+    candyAgain.length = 0;
+    localStorage.clear();
+
+    console.log(candyAgain);
+    handleShoppinglist();
+  }
 });
 
 //
@@ -119,7 +118,7 @@ function handleShoppinglist() {
     numberInput.value = candyAgain[i].amount.toString();
 
     numberInput.addEventListener("input", (event) => {
-      let value :any = (event.target as HTMLInputElement).value;
+      let value: any = (event.target as HTMLInputElement).value;
       candyAgain[i].amount = value;
 
       // Update localStorage
@@ -127,7 +126,7 @@ function handleShoppinglist() {
       localStorage.setItem("godis", customerCandystring);
 
       handleSummary();
-    }); 
+    });
 
     minusButton.addEventListener("click", () => subtrackCandy(i));
     // plusButton.addEventListener("click", () => addCandy(i));

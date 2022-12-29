@@ -20,3 +20,10 @@ function uniqID() {
   orderNr.innerText = "E" + id;
 }
 uniqID();
+
+let backHomeButton = document.getElementById(
+  "backHomeButton"
+) as HTMLButtonElement;
+backHomeButton.addEventListener("click", () => {
+  document.location.href = "./../pages/index.html";
+});

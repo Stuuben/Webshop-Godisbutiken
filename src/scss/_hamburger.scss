@@ -79,13 +79,14 @@
     }
     .menu {
       position: absolute;
-      top: 0;
+      top: 10;
       margin-top: 55px;
       left: 0;
       flex-direction: column;
       width: 100%;
       justify-content: center;
       align-items: center;
+      opacity: 0.9;
     }
     #menu-toggle ~ .menu li {
       height: 0;
