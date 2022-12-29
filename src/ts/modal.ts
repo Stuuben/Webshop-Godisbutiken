@@ -19,3 +19,189 @@ window.onclick = function(event) {
     modalForm.style.display;
   }
 };
+
+// --------------------------
+// From kassa.ts
+// --------------------------
+
+
+class Cart {
+  name: string;
+  price: number;
+  amount: number;
+  img: string;
+  constructor(name: string, price: number, amount: number, img: string) {
+    this.name = name;
+    this.price = price;
+    this.amount = 1;
+    this.img = img;
+  }
+}
+
+  
+  //Sträng för null i LS
+  let godis: string = "godis";
+  
+  //Hämtar från localstorage
+  let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
+  
+  //Omvandlar objekten från LS till nya objekt
+  let candyAgain = candyObj.map(
+    (candy: { name: string; price: number; amount: number; img: string }) => {
+      return new Cart(candy.name, candy.price, candy.amount, candy.img);
+    }
+  );
+  
+  
+  let paymentButton = document.getElementById("paymentButton") as HTMLDivElement;
+
+paymentButton.addEventListener("click", () => {
+  console.log("click");
+  document.location.href = "/pages/paymentsite.html";
+});
+  
+  let trashcan = document.getElementById("trashcan") as HTMLDivElement;
+
+  trashcan.addEventListener("click", () => {
+    let summary = document.getElementById(
+      "item__summary"
+    ) as HTMLParagraphElement;
+    summary.innerHTML = "";
+    candyAgain.length = 0;
+    localStorage.clear();
+
+    handleShoppinglist();
+  });
+  
+  
+  handleShoppinglist();
+  
+  handleSummary();
+  
+  //------------------------------
+  // Functions from Kassa.ts
+  // handleShoppinglist()
+  // handleSummary()
+  // subtrackCandy(i)
+  // removeDoubles()
+  //------------------------------
+  
+  function handleShoppinglist() {
+    let shoppingCart = document.getElementById("candy__item") as HTMLDivElement;
+   
+    shoppingCart.innerHTML = "";
+  
+    for (let i = 0; i < candyAgain.length; i++) {
+      let candyItemWrapper = document.createElement("div");
+  
+      candyItemWrapper.classList.add("itemWrapper");
+      let candyName = document.createElement("p");
+      candyName.classList.add("candy__name");
+      let candyPrice = document.createElement("span");
+  
+      let minusButton = document.createElement("button");
+      minusButton.classList.add("button__minus");
+      // let plusButton = document.createElement("button");
+      // plusButton.classList.add("button__plus");
+  
+      let numberInput = document.createElement("input") as HTMLInputElement;
+  
+      numberInput.classList.add("input__number");
+      numberInput.type = "number";
+      numberInput.min = "1";
+  
+     numberInput.value = candyAgain[i].amount.toString();
+    
+  
+     numberInput.addEventListener("input", (event) => {
+        const value = (event.target as HTMLInputElement).value;
+        candyAgain[i].amount = Number(value);
+
+        // Update localStorage
+      let customerCandystring = JSON.stringify(candyAgain);
+      localStorage.setItem("godis", customerCandystring);
+
+        handleSummary();
+      });
+  
+      minusButton.addEventListener("click", () => subtrackCandy(i));
+      // plusButton.addEventListener("click", () => addCandy(i));
+  
+      candyName.innerHTML = candyAgain[i].name; 
+      numberInput.innerHTML = candyAgain[i].amount.toString();
+      candyPrice.innerHTML = 
+        String(candyAgain[i].price * candyAgain[i].amount) + " kr";
+      minusButton.innerHTML = "remove";
+      // plusButton.innerHTML = "+";
+  
+      candyItemWrapper.appendChild(minusButton);
+      // candyItemWrapper.appendChild(plusButton);
+      candyItemWrapper.appendChild(numberInput);
+      candyItemWrapper.appendChild(candyName);
+  
+      candyName.appendChild(candyPrice);
+      shoppingCart.appendChild(candyItemWrapper);
+  
+      /*    if (candyAgain[i].name === candyAgain[i].name) {
+        candyAgain.pop();
+      }
+      console.log(candyAgain); */
+      removeDoubles();
+    }
+  }
+  handleShoppinglist();
+  
+  //
+  
+  // Räknar ut Summan av alla varorna
+  
+  function handleSummary() {
+    let sum = 0;
+  
+  
+  let summary = document.getElementById(
+      "item__summary"
+    ) as HTMLParagraphElement;
+    summary.innerHTML = "";
+  
+    for (let i = 0; i < candyAgain.length; i++) {
+      sum += candyAgain[i].price * candyAgain[i].amount;
+      summary.innerHTML = sum.toString() + " kr";
+  
+      handleShoppinglist();
+    }
+  }
+  handleSummary();
+  
+  //
+  
+  //
+  
+  function subtrackCandy(i: number) {
+    console.log("click-");
+    console.log(candyAgain[i].price);
+  
+    candyAgain.splice(i, 1);
+  
+    // Update localStorage
+  
+    let customerCandystring = JSON.stringify(candyAgain);
+    localStorage.setItem("godis", customerCandystring);
+
+    handleShoppinglist();
+    handleSummary();
+  }  
+  
+  function removeDoubles() {
+    for (let i = 0; i < candyAgain.length; i++) {
+      for (let x = 0; x < candyAgain.length; ++x) {
+        if (i !== x) {
+          if (candyAgain[i].name === candyAgain[x].name) {
+            candyAgain.splice(x, 1);
+          }
+        }
+      }
+    }
+  
+    console.log(candyAgain);
+  }
