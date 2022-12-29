@@ -121,6 +121,10 @@ function handleShoppinglist() {
       let value: any = (event.target as HTMLInputElement).value;
       candyAgain[i].amount = value;
 
+      // Update localStorage
+      let customerCandystring = JSON.stringify(candyAgain);
+      localStorage.setItem("godis", customerCandystring);
+
       handleSummary();
     });
 
@@ -176,6 +180,11 @@ function subtrackCandy(i: number) {
   console.log(candyAgain[i].price);
   localStorage.removeItem(candyAgain[i]);
   candyAgain.splice(i, 1);
+
+// // Update localStorage
+  
+let customerCandystring = JSON.stringify(candyAgain);
+localStorage.setItem("godis", customerCandystring);
 
   handleShoppinglist();
   handleSummary();
