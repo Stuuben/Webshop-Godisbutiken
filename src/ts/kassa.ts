@@ -130,7 +130,7 @@ function handleShoppinglist() {
     candyName.innerHTML = candyAgain[i].name;
     candyPrice.innerHTML =
       String(candyAgain[i].price * candyAgain[i].amount) + " kr";
-    minusButton.innerHTML = "remove";
+    minusButton.innerHTML = "Radera";
     // plusButton.innerHTML = "+";
 
     candyItemWrapper.appendChild(minusButton);
