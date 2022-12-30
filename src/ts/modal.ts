@@ -200,6 +200,4 @@ function removeDoubles() {
       }
     }
   }
-
-  console.log(candyAgain);
 }
