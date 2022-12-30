@@ -1,6 +1,5 @@
 import { Candy, CandyInCart, candys } from "./main";
 
-
 let container = document.getElementById("main") as HTMLDivElement;
 
 //Loopar Candys objekten in i HTML:en
@@ -43,12 +42,12 @@ function createHTML() {
 function handleClick(godis: Candy) {
   let candyLS = localStorage.getItem("godis");
 
-  if(candyLS === null) {
+  if (candyLS === null) {
     let customerCandystring = JSON.stringify([]);
     localStorage.setItem("godis", customerCandystring);
   }
 
-  let getCandy :any = localStorage.getItem("godis");
+  let getCandy: any = localStorage.getItem("godis");
   let currentCandy = JSON.parse(getCandy);
 
   let candyAlreadyInCart = false;
@@ -66,7 +65,7 @@ function handleClick(godis: Candy) {
       godis.type,
       godis.img,
       godis.desc,
-      1,
+      1
     );
     currentCandy.push(cartCandy);
   }
@@ -132,6 +131,42 @@ function checkForFilter() {
   });
 }
 
+function handleFilteredClick(filtreratGodis) {
+  console.log("Klickad!");
+  console.log(filtreratGodis);
+
+  let filterLS = localStorage.getItem("godis");
+
+  if (filterLS === null) {
+    let filteredCandyString = JSON.stringify([]);
+    localStorage.setItem("godis", filteredCandyString);
+  }
+
+  let getFCandy: any = localStorage.getItem("godis");
+  let currentFCandy = JSON.parse(getFCandy);
+
+  let candyAlreadyInCart = false;
+  for (let i = 0; i < currentFCandy.length; i++) {
+    if (currentFCandy[i].name === filtreratGodis.name) {
+      currentFCandy[i].amount++;
+      candyAlreadyInCart = true;
+    }
+  }
+
+  if (!candyAlreadyInCart) {
+    let cartCandy = new CandyInCart(
+      filtreratGodis.name,
+      filtreratGodis.price,
+      filtreratGodis.type,
+      filtreratGodis.img,
+      filtreratGodis.desc,
+      1
+    );
+    currentFCandy.push(cartCandy);
+  }
+  localStorage.setItem("godis", JSON.stringify(currentFCandy));
+}
+
 function filteredProducts() {
   let filteredList = candys.filter((candy) => {
     return candy.type === filter;
@@ -153,14 +188,14 @@ function filteredProducts() {
     h3.innerHTML = filteredList[i].name;
 
     let pTag = document.createElement("p") as HTMLParagraphElement;
-    pTag.innerHTML = String(`Pris: ${candys[i].price} kr`);
+    pTag.innerHTML = String(`Pris: ${filteredList[i].price} kr`);
     pTag.classList.add("candyPrice");
 
     let buyBtn = document.createElement("button") as HTMLButtonElement;
     buyBtn.innerHTML = "Köp";
     buyBtn.classList.add("buy");
     buyBtn.addEventListener("click", () => {
-      handleClick(candys[i]);
+      handleFilteredClick(filteredList[i]);
     });
 
     div.appendChild(img);
@@ -170,6 +205,7 @@ function filteredProducts() {
     container.appendChild(div);
   }
 }
+
 
 checkForFilter();
 createHTML();
