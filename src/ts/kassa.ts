@@ -8,7 +8,7 @@ class Cart {
   constructor(name: string, price: number, amount: number, img: string) {
     this.name = name;
     this.price = price;
-    this.amount = 1;
+    this.amount = amount;
     this.img = img;
   }
 }

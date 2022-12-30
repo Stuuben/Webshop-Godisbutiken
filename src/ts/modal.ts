@@ -2,7 +2,7 @@
 let modalForm = document.getElementById("myModal") as HTMLDivElement;
 
 // Get the button that opens the modal
-let modalBtn = document.getElementById("myBtn");
+let modalBtn = document.getElementById("myBtn") as HTMLButtonElement;
 
 // Get the <span> element that closes the modal
 let modalSpan = document.getElementsByClassName("close")[0];
@@ -21,8 +21,6 @@ window.onclick = function (event) {
 };
 
 // --------------------------
-// From kassa.ts
-// --------------------------
 
 class Cart {
   name: string;
@@ -32,7 +30,7 @@ class Cart {
   constructor(name: string, price: number, amount: number, img: string) {
     this.name = name;
     this.price = price;
-    this.amount = 1;
+    this.amount = amount;
     this.img = img;
   }
 }
@@ -44,12 +42,13 @@ let godis: string = "godis";
 let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
 
 //Omvandlar objekten från LS till nya objekt
-let candyAgain = candyObj.map(
+let candyAgain = [candyObj].map(
   (candy: { name: string; price: number; amount: number; img: string }) => {
     return new Cart(candy.name, candy.price, candy.amount, candy.img);
   }
 );
 
+//paymentButton
 let paymentButton = document.getElementById("paymentButton") as HTMLDivElement;
 
 paymentButton.addEventListener("click", () => {
@@ -57,17 +56,21 @@ paymentButton.addEventListener("click", () => {
   document.location.href = "/pages/paymentsite.html";
 });
 
+// Trashcan
 let trashcan = document.getElementById("trashcan") as HTMLDivElement;
-
 trashcan.addEventListener("click", () => {
   let summary = document.getElementById(
     "item__summary"
   ) as HTMLParagraphElement;
-  summary.innerHTML = "";
-  candyAgain.length = 0;
-  localStorage.clear();
 
-  handleShoppinglist();
+  if (confirm("Är du säker på att du vill tömma hela varukorgen?")) {
+    summary.innerHTML = "";
+    candyAgain.length = 0;
+    localStorage.clear();
+
+    console.log(candyAgain);
+    handleShoppinglist();
+  }
 });
 
 handleShoppinglist();
@@ -75,7 +78,6 @@ handleShoppinglist();
 handleSummary();
 
 //------------------------------
-// Functions from Kassa.ts
 // handleShoppinglist()
 // handleSummary()
 // subtrackCandy(i)
@@ -106,8 +108,12 @@ function handleShoppinglist() {
     numberInput.type = "number";
     numberInput.min = "1";
 
+    if (candyAgain[i].amount == null) {
+      candyAgain[i].amount = 1;
+    }
     numberInput.value = candyAgain[i].amount.toString();
 
+    //Chaninging number
     numberInput.addEventListener("input", (event) => {
       const value = (event.target as HTMLInputElement).value;
       candyAgain[i].amount = Number(value);
@@ -120,17 +126,15 @@ function handleShoppinglist() {
     });
 
     minusButton.addEventListener("click", () => subtrackCandy(i));
-    // plusButton.addEventListener("click", () => addCandy(i));
 
     candyName.innerHTML = candyAgain[i].name;
+
     numberInput.innerHTML = candyAgain[i].amount.toString();
     candyPrice.innerHTML =
       String(candyAgain[i].price * candyAgain[i].amount) + " kr";
     minusButton.innerHTML = "remove";
-    // plusButton.innerHTML = "+";
 
     candyItemWrapper.appendChild(minusButton);
-    // candyItemWrapper.appendChild(plusButton);
     candyItemWrapper.appendChild(numberInput);
     candyItemWrapper.appendChild(candyName);
 
