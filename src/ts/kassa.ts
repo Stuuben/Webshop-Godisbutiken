@@ -181,11 +181,6 @@ function subtrackCandy(i: number) {
   localStorage.removeItem(candyAgain[i]);
   candyAgain.splice(i, 1);
 
-// // Update localStorage
-  
-let customerCandystring = JSON.stringify(candyAgain);
-localStorage.setItem("godis", customerCandystring);
-
   handleShoppinglist();
   handleSummary();
 }
