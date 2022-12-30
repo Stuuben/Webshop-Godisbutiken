@@ -1,6 +1,7 @@
 import { candyAgain } from "./kassa";
 import { Candy, candys } from "./main";
 
+
 let container = document.getElementById("main") as HTMLDivElement;
 let boughtCandy: Candy[] = [];
 
@@ -30,6 +31,7 @@ function createHTML() {
     buyBtn.classList.add("buy");
     buyBtn.addEventListener("click", () => {
       handleClick(candys[i]);
+      location.reload();
     });
 
     div.appendChild(img);
@@ -72,6 +74,7 @@ function handleClick(godis: Candy) {
   //   localStorage.setItem("godis", JSON.stringify(currentCandy));
   // }
   // boughtCandy.push(godis);
+
 }
 
 let filter = " ";

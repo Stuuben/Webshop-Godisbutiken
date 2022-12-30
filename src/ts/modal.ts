@@ -21,8 +21,6 @@ window.onclick = function(event) {
 };
 
 // --------------------------
-// From kassa.ts
-// --------------------------
 
 
 class Cart {
@@ -33,12 +31,11 @@ class Cart {
   constructor(name: string, price: number, amount: number, img: string) {
     this.name = name;
     this.price = price;
-    this.amount = 1;
+    this.amount = amount;
     this.img = img;
   }
 }
 
-  
   //Sträng för null i LS
   let godis: string = "godis";
   
@@ -52,26 +49,30 @@ class Cart {
     }
   );
   
-  
+  //paymentButton
   let paymentButton = document.getElementById("paymentButton") as HTMLDivElement;
 
-paymentButton.addEventListener("click", () => {
-  console.log("click");
-  document.location.href = "/pages/paymentsite.html";
+    paymentButton.addEventListener("click", () => {
+    console.log("click");
+    document.location.href = "/pages/paymentsite.html";
 });
-  
-  let trashcan = document.getElementById("trashcan") as HTMLDivElement;
 
-  trashcan.addEventListener("click", () => {
-    let summary = document.getElementById(
-      "item__summary"
-    ) as HTMLParagraphElement;
+// Trashcan
+let trashcan = document.getElementById("trashcan") as HTMLDivElement;
+trashcan.addEventListener("click", () => {
+  let summary = document.getElementById(
+    "item__summary"
+  ) as HTMLParagraphElement;
+
+  if (confirm("Är du säker på att du vill tömma hela varukorgen?")) {
     summary.innerHTML = "";
     candyAgain.length = 0;
     localStorage.clear();
 
+    console.log(candyAgain);
     handleShoppinglist();
-  });
+  }
+});
   
   
   handleShoppinglist();
@@ -79,14 +80,15 @@ paymentButton.addEventListener("click", () => {
   handleSummary();
   
   //------------------------------
-  // Functions from Kassa.ts
   // handleShoppinglist()
   // handleSummary()
   // subtrackCandy(i)
   // removeDoubles()
   //------------------------------
   
+
   function handleShoppinglist() {
+    
     let shoppingCart = document.getElementById("candy__item") as HTMLDivElement;
    
     shoppingCart.innerHTML = "";
@@ -109,15 +111,18 @@ paymentButton.addEventListener("click", () => {
       numberInput.classList.add("input__number");
       numberInput.type = "number";
       numberInput.min = "1";
-  
+     
+    if (candyAgain[i].amount == null) {
+      candyAgain[i].amount=1;
+    }
      numberInput.value = candyAgain[i].amount.toString();
     
-  
+    //Chaninging number
      numberInput.addEventListener("input", (event) => {
         const value = (event.target as HTMLInputElement).value;
         candyAgain[i].amount = Number(value);
 
-        // Update localStorage
+      // Update localStorage
       let customerCandystring = JSON.stringify(candyAgain);
       localStorage.setItem("godis", customerCandystring);
 
@@ -125,17 +130,15 @@ paymentButton.addEventListener("click", () => {
       });
   
       minusButton.addEventListener("click", () => subtrackCandy(i));
-      // plusButton.addEventListener("click", () => addCandy(i));
   
       candyName.innerHTML = candyAgain[i].name; 
+
       numberInput.innerHTML = candyAgain[i].amount.toString();
       candyPrice.innerHTML = 
         String(candyAgain[i].price * candyAgain[i].amount) + " kr";
       minusButton.innerHTML = "remove";
-      // plusButton.innerHTML = "+";
   
       candyItemWrapper.appendChild(minusButton);
-      // candyItemWrapper.appendChild(plusButton);
       candyItemWrapper.appendChild(numberInput);
       candyItemWrapper.appendChild(candyName);
   
@@ -204,4 +207,5 @@ paymentButton.addEventListener("click", () => {
     }
   
     console.log(candyAgain);
+    
   }
