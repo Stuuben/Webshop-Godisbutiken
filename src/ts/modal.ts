@@ -8,7 +8,11 @@ let modalBtn = document.getElementById("myBtn") as HTMLButtonElement;
 let modalSpan = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-modalBtn.addEventListener("click", () => (modalForm.style.display = "block"));
+
+modalBtn.addEventListener("click", () => {
+  modalForm.style.display = "block";
+  console.log("clickck");
+});
 
 // When the user clicks on <span> (x), close the modal
 modalSpan.addEventListener("click", () => (modalForm.style.display = "none"));
@@ -20,35 +24,11 @@ window.onclick = function (event) {
   }
 };
 
-// --------------------------
-
-class Cart {
-  name: string;
-  price: number;
-  amount: number;
-  img: string;
-  constructor(name: string, price: number, amount: number, img: string) {
-    this.name = name;
-    this.price = price;
-    this.amount = amount;
-    this.img = img;
-  }
-}
-
-//Sträng för null i LS
-let godis: string = "godis";
-
 //Hämtar från localstorage
-let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
+let candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
 
-//Omvandlar objekten från LS till nya objekt
-let candyAgain = candyObj.map(
-  (candy: { name: string; price: number; amount: number; img: string }) => {
-    return new Cart(candy.name, candy.price, candy.amount, candy.img);
-  }
-);
+console.log("shoppingcart");
 
-//paymentButton
 let paymentButton = document.getElementById("paymentButton") as HTMLDivElement;
 
 paymentButton.addEventListener("click", () => {
@@ -56,7 +36,6 @@ paymentButton.addEventListener("click", () => {
   document.location.href = "/pages/paymentsite.html";
 });
 
-// Trashcan
 let trashcan = document.getElementById("trashcan") as HTMLDivElement;
 trashcan.addEventListener("click", () => {
   let summary = document.getElementById(
@@ -65,31 +44,22 @@ trashcan.addEventListener("click", () => {
 
   if (confirm("Är du säker på att du vill tömma hela varukorgen?")) {
     summary.innerHTML = "";
-    candyAgain.length = 0;
+    candyObj.length = 0;
     localStorage.clear();
 
-    console.log(candyAgain);
+    console.log(candyObj);
     handleShoppinglist();
   }
 });
 
-handleShoppinglist();
-
-handleSummary();
-
-//------------------------------
-// handleShoppinglist()
-// handleSummary()
-// subtrackCandy(i)
-// removeDoubles()
-//------------------------------
+//
 
 function handleShoppinglist() {
   let shoppingCart = document.getElementById("candy__item") as HTMLDivElement;
 
   shoppingCart.innerHTML = "";
 
-  for (let i = 0; i < candyAgain.length; i++) {
+  for (let i = 0; i < candyObj.length; i++) {
     let candyItemWrapper = document.createElement("div");
 
     candyItemWrapper.classList.add("itemWrapper");
@@ -103,49 +73,39 @@ function handleShoppinglist() {
     // plusButton.classList.add("button__plus");
 
     let numberInput = document.createElement("input") as HTMLInputElement;
-
     numberInput.classList.add("input__number");
     numberInput.type = "number";
     numberInput.min = "1";
 
-    if (candyAgain[i].amount == null) {
-      candyAgain[i].amount = 1;
-    }
-    numberInput.value = candyAgain[i].amount.toString();
+    numberInput.value = candyObj[i].amount;
 
-    //Chaninging number
     numberInput.addEventListener("input", (event) => {
-      const value = (event.target as HTMLInputElement).value;
-      candyAgain[i].amount = Number(value);
+      let value: any = (event.target as HTMLInputElement).value;
+      candyObj[i].amount = value;
 
       // Update localStorage
-      let customerCandystring = JSON.stringify(candyAgain);
+      let customerCandystring = JSON.stringify(candyObj);
       localStorage.setItem("godis", customerCandystring);
 
       handleSummary();
     });
 
     minusButton.addEventListener("click", () => subtrackCandy(i));
+    // plusButton.addEventListener("click", () => addCandy(i));
 
-    candyName.innerHTML = candyAgain[i].name;
-
-    numberInput.innerHTML = candyAgain[i].amount.toString();
+    candyName.innerHTML = candyObj[i].name;
     candyPrice.innerHTML =
-      String(candyAgain[i].price * candyAgain[i].amount) + " kr";
-    minusButton.innerHTML = "remove";
+      String(candyObj[i].price * candyObj[i].amount) + " kr";
+    minusButton.innerHTML = "Radera";
+    // plusButton.innerHTML = "+";
 
     candyItemWrapper.appendChild(minusButton);
+    // candyItemWrapper.appendChild(plusButton);
     candyItemWrapper.appendChild(numberInput);
     candyItemWrapper.appendChild(candyName);
 
     candyName.appendChild(candyPrice);
     shoppingCart.appendChild(candyItemWrapper);
-
-    /*    if (candyAgain[i].name === candyAgain[i].name) {
-        candyAgain.pop();
-      }
-      console.log(candyAgain); */
-    removeDoubles();
   }
 }
 handleShoppinglist();
@@ -162,8 +122,8 @@ function handleSummary() {
   ) as HTMLParagraphElement;
   summary.innerHTML = "";
 
-  for (let i = 0; i < candyAgain.length; i++) {
-    sum += candyAgain[i].price * candyAgain[i].amount;
+  for (let i = 0; i < candyObj.length; i++) {
+    sum += candyObj[i].price * candyObj[i].amount;
     summary.innerHTML = sum.toString() + " kr";
 
     handleShoppinglist();
@@ -176,19 +136,19 @@ handleSummary();
 //
 
 function subtrackCandy(i: number) {
-  console.log("click-");
-  console.log(candyAgain[i].price);
+  if (candyObj[i].amount > 1) {
+    candyObj[i].amount--;
+  } else {
+    candyObj.splice(i, 1);
+  }
 
-  candyAgain.splice(i, 1);
-
-  // Update localStorage
-
-  let customerCandystring = JSON.stringify(candyAgain);
+  let customerCandystring = JSON.stringify(candyObj);
   localStorage.setItem("godis", customerCandystring);
 
   handleShoppinglist();
   handleSummary();
 }
+<<<<<<< HEAD
 
 function removeDoubles() {
   for (let i = 0; i < candyAgain.length; i++) {
@@ -201,3 +161,8 @@ function removeDoubles() {
     }
   }
 }
+function getModal(): any {
+  throw new Error("Function not implemented.");
+}
+=======
+>>>>>>> ddd038f71db088b733ef488ac5767a6e0b2d50e6

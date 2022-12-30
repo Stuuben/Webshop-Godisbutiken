@@ -35,12 +35,18 @@ nav {
   @include mixins.main;
   min-height: 78vh;
 
+  #img__startsida {
+    width: 100%;
+  }
   @include mixins.tablet {
     text-align: left;
     margin-bottom: 5%;
 
     .welcomeText {
       width: 50vw;
+    }
+    #img__startsida {
+      width: 70%;
     }
   }
 }
@@ -52,7 +58,7 @@ nav {
 //Footer
 .contact {
   @include mixins.footer;
-
+  height: 150px;
   @include mixins.tablet {
     display: flex;
     width: 100%;
@@ -190,7 +196,6 @@ nav {
   @include mixins.product__main;
 
   @include mixins.tablet {
-    width: 100%;
     flex-direction: row;
   }
 

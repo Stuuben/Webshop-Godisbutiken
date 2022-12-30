@@ -1,4 +1,4 @@
-import { candyAgain } from "./kassa";
+
 
 let testName: string = "hej";
 
