@@ -8,7 +8,11 @@ let modalBtn = document.getElementById("myBtn") as HTMLButtonElement;
 let modalSpan = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-modalBtn.addEventListener("click", () => (modalForm.style.display = "block"));
+
+modalBtn.addEventListener("click", () => {
+  modalForm.style.display = "block";
+  console.log("clickck");
+});
 
 // When the user clicks on <span> (x), close the modal
 modalSpan.addEventListener("click", () => (modalForm.style.display = "none"));
@@ -144,3 +148,21 @@ function subtrackCandy(i: number) {
   handleShoppinglist();
   handleSummary();
 }
+<<<<<<< HEAD
+
+function removeDoubles() {
+  for (let i = 0; i < candyAgain.length; i++) {
+    for (let x = 0; x < candyAgain.length; ++x) {
+      if (i !== x) {
+        if (candyAgain[i].name === candyAgain[x].name) {
+          candyAgain.splice(x, 1);
+        }
+      }
+    }
+  }
+}
+function getModal(): any {
+  throw new Error("Function not implemented.");
+}
+=======
+>>>>>>> ddd038f71db088b733ef488ac5767a6e0b2d50e6

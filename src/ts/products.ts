@@ -1,5 +1,6 @@
 import { Candy, CandyInCart, candys } from "./main";
 
+
 let container = document.getElementById("main") as HTMLDivElement;
 
 //Loopar Candys objekten in i HTML:en
