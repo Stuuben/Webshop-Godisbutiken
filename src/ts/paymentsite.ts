@@ -1,6 +1,3 @@
-import { candyAgain } from "./kassa";
-import { candys } from "./main";
-
 let confirmBuy = document.getElementById("confirmButton") as HTMLButtonElement;
 
 let userName = document.getElementById("firstname") as HTMLInputElement;

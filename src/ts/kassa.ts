@@ -1,69 +1,14 @@
 import { Candy } from "./main";
 
-class Cart {
-  name: string;
-  price: number;
-  amount: number;
-  img: string;
-  constructor(name: string, price: number, amount: number, img: string) {
-    this.name = name;
-    this.price = price;
-    this.amount = amount;
-    this.img = img;
-  }
-}
-
 let container = document.getElementById(
   "checkout__container"
 ) as HTMLDivElement;
 
 //Sträng för null i LS
-let godis: string = "godis";
 
 //Hämtar från localstorage
 
-let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
-
-//Omvandlar objekten från LS till nya objekt
-export let candyAgain = candyObj.map(
-  (candy: { name: string; price: number; amount: number; img: string }) => {
-    return new Cart(candy.name, candy.price, candy.amount, candy.img);
-  }
-);
-
-//Loopar igenom de nya objekten
-function localStorageHTML() {
-  // localStorage.clear();
-
-  for (let i = 0; i < candyAgain.length; i++) {
-    let div = document.createElement("div") as HTMLDivElement;
-    div.classList.add("checkout");
-
-    let img = document.createElement("img") as HTMLImageElement;
-    img.src = candyAgain[i].img;
-    img.classList.add("checkout__img");
-
-    let info = document.createElement("div") as HTMLDivElement;
-    info.classList.add("checkout__info");
-
-    let pTag = document.createElement("p") as HTMLParagraphElement;
-    pTag.innerHTML = candyAgain[i].name;
-    pTag.classList.add("candy");
-
-    let priceTag = document.createElement("p") as HTMLParagraphElement;
-    priceTag.innerHTML = String(`Pris: ${candyAgain[i].price} kr`);
-    priceTag.classList.add("price");
-
-    div.appendChild(img);
-    div.appendChild(pTag);
-    div.appendChild(priceTag);
-    container.appendChild(div);
-
-    console.log(candyAgain[i]);
-  }
-}
-
-localStorageHTML();
+let candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
 
 console.log("shoppingcart");
 
@@ -82,10 +27,10 @@ trashcan.addEventListener("click", () => {
 
   if (confirm("Är du säker på att du vill tömma hela varukorgen?")) {
     summary.innerHTML = "";
-    candyAgain.length = 0;
+    candyObj.length = 0;
     localStorage.clear();
 
-    console.log(candyAgain);
+    console.log(candyObj);
     handleShoppinglist();
   }
 });
@@ -97,7 +42,7 @@ function handleShoppinglist() {
 
   shoppingCart.innerHTML = "";
 
-  for (let i = 0; i < candyAgain.length; i++) {
+  for (let i = 0; i < candyObj.length; i++) {
     let candyItemWrapper = document.createElement("div");
 
     candyItemWrapper.classList.add("itemWrapper");
@@ -115,14 +60,14 @@ function handleShoppinglist() {
     numberInput.type = "number";
     numberInput.min = "1";
 
-    numberInput.value = candyAgain[i].amount.toString();
+    numberInput.value = candyObj[i].amount;
 
     numberInput.addEventListener("input", (event) => {
       let value: any = (event.target as HTMLInputElement).value;
-      candyAgain[i].amount = value;
+      candyObj[i].amount = value;
 
       // Update localStorage
-      let customerCandystring = JSON.stringify(candyAgain);
+      let customerCandystring = JSON.stringify(candyObj);
       localStorage.setItem("godis", customerCandystring);
 
       handleSummary();
@@ -131,9 +76,9 @@ function handleShoppinglist() {
     minusButton.addEventListener("click", () => subtrackCandy(i));
     // plusButton.addEventListener("click", () => addCandy(i));
 
-    candyName.innerHTML = candyAgain[i].name;
+    candyName.innerHTML = candyObj[i].name;
     candyPrice.innerHTML =
-      String(candyAgain[i].price * candyAgain[i].amount) + " kr";
+      String(candyObj[i].price * candyObj[i].amount) + " kr";
     minusButton.innerHTML = "Radera";
     // plusButton.innerHTML = "+";
 
@@ -145,7 +90,6 @@ function handleShoppinglist() {
     candyName.appendChild(candyPrice);
     shoppingCart.appendChild(candyItemWrapper);
 
-    removeDoubles();
   }
 }
 handleShoppinglist();
@@ -162,8 +106,8 @@ function handleSummary() {
   ) as HTMLParagraphElement;
   summary.innerHTML = "";
 
-  for (let i = 0; i < candyAgain.length; i++) {
-    sum += candyAgain[i].price * candyAgain[i].amount;
+  for (let i = 0; i < candyObj.length; i++) {
+    sum += candyObj[i].price * candyObj[i].amount;
     summary.innerHTML = sum.toString() + " kr";
 
     handleShoppinglist();
@@ -176,26 +120,15 @@ handleSummary();
 //
 
 function subtrackCandy(i: number) {
-  console.log("click-");
-  console.log(candyAgain[i].price);
-  localStorage.removeItem(candyAgain[i]);
-  candyAgain.splice(i, 1);
+  if (candyObj[i].amount > 1) {
+    candyObj[i].amount--;
+  } else {
+    candyObj.splice(i, 1);
+  }
+    
+  let customerCandystring = JSON.stringify(candyObj);
+  localStorage.setItem("godis", customerCandystring);
 
   handleShoppinglist();
   handleSummary();
-}
-
-function removeDoubles() {
-  for (let i = 0; i < candyAgain.length; i++) {
-    for (let x = 0; x < candyAgain.length; ++x) {
-      if (i !== x) {
-        if (candyAgain[i].name === candyAgain[x].name) {
-          candyAgain.splice(x, 1);
-          candyAgain[i].amount++;
-        }
-      }
-    }
-  }
-
-  console.log(candyAgain);
 }

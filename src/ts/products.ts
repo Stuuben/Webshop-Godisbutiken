@@ -1,9 +1,6 @@
-import { candyAgain } from "./kassa";
-import { Candy, candys } from "./main";
-
+import { Candy, CandyInCart, candys } from "./main";
 
 let container = document.getElementById("main") as HTMLDivElement;
-let boughtCandy: Candy[] = [];
 
 //Loopar Candys objekten in i HTML:en
 function createHTML() {
@@ -31,7 +28,6 @@ function createHTML() {
     buyBtn.classList.add("buy");
     buyBtn.addEventListener("click", () => {
       handleClick(candys[i]);
-      location.reload();
     });
 
     div.appendChild(img);
@@ -44,37 +40,36 @@ function createHTML() {
 }
 //Köp knappen
 function handleClick(godis: Candy) {
-  // boughtCandy.push(godis);
-  // let candyLS = localStorage.getItem("godis");
-  // let customerCandystring = JSON.stringify(boughtCandy);
-  // localStorage.setItem("godis", customerCandystring);
-
   let candyLS = localStorage.getItem("godis");
 
   if(candyLS === null) {
-    boughtCandy.push(godis);
-    let customerCandystring = JSON.stringify(boughtCandy);
+    let customerCandystring = JSON.stringify([]);
     localStorage.setItem("godis", customerCandystring);
-  } else {
-    let getCurrentCandy :any = localStorage.getItem("godis");
-    let currentCandy = JSON.parse(getCurrentCandy);
-    currentCandy.push(godis);
-    localStorage.setItem("godis", JSON.stringify(currentCandy));
   }
 
-  // if (candyLS === null) {
-  //   boughtCandy.push(godis);
-  //   let customerCandystring = JSON.stringify(boughtCandy);
-  //   localStorage.setItem("godis", customerCandystring);
-  // } else {
-  //   let getCurrentCandy :any= localStorage.getItem("candy");
-  //   let currentCandy = JSON.parse(getCurrentCandy) || ("[]");
-  //   currentCandy.push(godis);
+  let getCandy :any = localStorage.getItem("godis");
+  let currentCandy = JSON.parse(getCandy);
 
-  //   localStorage.setItem("godis", JSON.stringify(currentCandy));
-  // }
-  // boughtCandy.push(godis);
+  let candyAlreadyInCart = false;
+  for (let i = 0; i < currentCandy.length; i++) {
+    if (currentCandy[i].name === godis.name) {
+      currentCandy[i].amount++;
+      candyAlreadyInCart = true;
+    }
+  }
 
+  if (!candyAlreadyInCart) {
+    let cartCandy = new CandyInCart(
+      godis.name,
+      godis.price,
+      godis.type,
+      godis.img,
+      godis.desc,
+      1,
+    );
+    currentCandy.push(cartCandy);
+  }
+  localStorage.setItem("godis", JSON.stringify(currentCandy));
 }
 
 let filter = " ";
