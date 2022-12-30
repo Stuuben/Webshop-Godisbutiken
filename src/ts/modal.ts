@@ -42,7 +42,7 @@ let godis: string = "godis";
 let candyObj = JSON.parse(localStorage.getItem("godis") || godis);
 
 //Omvandlar objekten från LS till nya objekt
-let candyAgain = [candyObj].map(
+let candyAgain = candyObj.map(
   (candy: { name: string; price: number; amount: number; img: string }) => {
     return new Cart(candy.name, candy.price, candy.amount, candy.img);
   }
