@@ -18,7 +18,7 @@
 
     <link rel="stylesheet" href="/src/scss/main.scss" />
     <script src="/src/ts/main.ts" type="module" defer></script>
-    <script src="/src/ts/modal.ts" defer></script>
+    <script src="/src/ts/modal.ts" type="module" defer></script>
 
     <title>Godisbutiken</title>
   </head>
@@ -34,8 +34,7 @@
             </label>
 
             <img src="/src/assets/klubbor.png" class="logo" alt="lollipops" />
-            <a href="pages/kassa.html"
-              ><i class="fa-solid fa-cart-shopping"></i
+            <a id="myBtn"><i class="fa-solid fa-cart-shopping"></i
             ></a>
 
             <ul class="menu">
@@ -62,16 +61,31 @@
       <a href="pages/purchase.html">Tack för ditt köp</a>
 
       <section>
-        <button id="myBtn">Open Modal</button>
         <!-- The Modal -->
       <div id="myModal" class="modal">
 
         <!-- Modal content -->
           <div class="modal-content">
             <span class="close">&times;</span>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe illum a incidunt eum neque atque, tenetur id. Hic vel quam enim dolore natus, rem corrupti! Provident eligendi inventore fugiat nostrum?</p>
+            <div class="shoppingcart__wrapper">
+              <div class="shoppingcart">
+                <h3>Varukorg</h3>
+      
+                <div id="trashcan"><i class="fa-solid fa-trash"></i></div>
+      
+                <div class="shoppingcart__wrapper--item">
+                  <div id="candy__item" class="item">
+                </div>
+                <div class="summa">
+                  <h4>Summa</h4>
+                  <p id="item__summary"></p>
+                  
+                  <button id="paymentButton">Betala</button>
+                </div>
+              </div>
       </div>
       </section>
+      <a href="/src/pages/kassa.html"><i class="fa-solid fa-cart-shopping"></i></a>
     </main>
 
     <footer class="contact" id="contact">

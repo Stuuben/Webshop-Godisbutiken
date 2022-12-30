@@ -8,7 +8,7 @@ class Cart {
   constructor(name: string, price: number, amount: number, img: string) {
     this.name = name;
     this.price = price;
-    this.amount = 1;
+    this.amount = amount;
     this.img = img;
   }
 }
@@ -121,6 +121,10 @@ function handleShoppinglist() {
       let value: any = (event.target as HTMLInputElement).value;
       candyAgain[i].amount = value;
 
+      // Update localStorage
+      let customerCandystring = JSON.stringify(candyAgain);
+      localStorage.setItem("godis", customerCandystring);
+
       handleSummary();
     });
 
@@ -130,7 +134,7 @@ function handleShoppinglist() {
     candyName.innerHTML = candyAgain[i].name;
     candyPrice.innerHTML =
       String(candyAgain[i].price * candyAgain[i].amount) + " kr";
-    minusButton.innerHTML = "remove";
+    minusButton.innerHTML = "Radera";
     // plusButton.innerHTML = "+";
 
     candyItemWrapper.appendChild(minusButton);
@@ -176,6 +180,11 @@ function subtrackCandy(i: number) {
   console.log(candyAgain[i].price);
   localStorage.removeItem(candyAgain[i]);
   candyAgain.splice(i, 1);
+
+// // Update localStorage
+  
+let customerCandystring = JSON.stringify(candyAgain);
+localStorage.setItem("godis", customerCandystring);
 
   handleShoppinglist();
   handleSummary();
