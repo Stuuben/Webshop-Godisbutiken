@@ -22,18 +22,34 @@ export class Candy {
   }
 }
 
+export class CandyInCart extends Candy {
+  amount: number;
+
+  constructor(
+    name: string,
+    price: number,
+    type: string,
+    img: string,
+    desc: string,
+    amount: number
+  ) {
+    super(name, price, type, img, desc);
+    this.amount = amount;
+  }
+}
+
 let fizzyBubliz = new Candy(
   "Fizzy Bubliz",
   6,
   "Sur",
-  "/fizzybubbliz.2140eb84.png",
+  "../assets/ferrari.png",
   "Fizzy Bubblizz är en rosa och blå flaska med en mjuk konsistens och har en smak av bubbelgum."
 );
 let peanutSquare = new Candy(
   "Jordnötsruta",
   5,
   "Choklad",
-  "/jordnotsruta.0741e7ef.png",
+  "http://localhost:1234/jordnotsruta.0741e7ef.png",
   "Knapriga jordnötskross i mörk choklad."
 );
 let punsch = new Candy(
