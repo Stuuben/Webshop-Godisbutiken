@@ -1,134 +1,124 @@
-import { Candy } from "./main";
+// //Hämtar från localstorage
+// let candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
 
-let container = document.getElementById(
-  "checkout__container"
-) as HTMLDivElement;
+// console.log("shoppingcart");
 
-//Sträng för null i LS
+// let paymentButton = document.getElementById("paymentButton") as HTMLDivElement;
 
-//Hämtar från localstorage
+// paymentButton.addEventListener("click", () => {
+//   console.log("click");
+//   document.location.href = "/pages/paymentsite.html";
+// });
 
-let candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
+// let trashcan = document.getElementById("trashcan") as HTMLDivElement;
+// trashcan.addEventListener("click", () => {
+//   let summary = document.getElementById(
+//     "item__summary"
+//   ) as HTMLParagraphElement;
 
-console.log("shoppingcart");
+//   if (confirm("Är du säker på att du vill tömma hela varukorgen?")) {
+//     summary.innerHTML = "";
+//     candyObj.length = 0;
+//     localStorage.clear();
 
-let paymentButton = document.getElementById("paymentButton") as HTMLDivElement;
+//     console.log(candyObj);
+//     handleShoppinglist();
+//   }
+// });
 
-paymentButton.addEventListener("click", () => {
-  console.log("click");
-  document.location.href = "/pages/paymentsite.html";
-});
+// //
 
-let trashcan = document.getElementById("trashcan") as HTMLDivElement;
-trashcan.addEventListener("click", () => {
-  let summary = document.getElementById(
-    "item__summary"
-  ) as HTMLParagraphElement;
+// function handleShoppinglist() {
+//   let shoppingCart = document.getElementById("candy__item") as HTMLDivElement;
 
-  if (confirm("Är du säker på att du vill tömma hela varukorgen?")) {
-    summary.innerHTML = "";
-    candyObj.length = 0;
-    localStorage.clear();
+//   shoppingCart.innerHTML = "";
 
-    console.log(candyObj);
-    handleShoppinglist();
-  }
-});
+//   for (let i = 0; i < candyObj.length; i++) {
+//     let candyItemWrapper = document.createElement("div");
 
-//
+//     candyItemWrapper.classList.add("itemWrapper");
+//     let candyName = document.createElement("p");
+//     candyName.classList.add("candy__name");
+//     let candyPrice = document.createElement("span");
 
-function handleShoppinglist() {
-  let shoppingCart = document.getElementById("candy__item") as HTMLDivElement;
+//     let minusButton = document.createElement("button");
+//     minusButton.classList.add("button__minus");
+//     // let plusButton = document.createElement("button");
+//     // plusButton.classList.add("button__plus");
 
-  shoppingCart.innerHTML = "";
+//     let numberInput = document.createElement("input") as HTMLInputElement;
+//     numberInput.classList.add("input__number");
+//     numberInput.type = "number";
+//     numberInput.min = "1";
 
-  for (let i = 0; i < candyObj.length; i++) {
-    let candyItemWrapper = document.createElement("div");
+//     numberInput.value = candyObj[i].amount;
 
-    candyItemWrapper.classList.add("itemWrapper");
-    let candyName = document.createElement("p");
-    candyName.classList.add("candy__name");
-    let candyPrice = document.createElement("span");
+//     numberInput.addEventListener("input", (event) => {
+//       let value: any = (event.target as HTMLInputElement).value;
+//       candyObj[i].amount = value;
 
-    let minusButton = document.createElement("button");
-    minusButton.classList.add("button__minus");
-    // let plusButton = document.createElement("button");
-    // plusButton.classList.add("button__plus");
+//       // Update localStorage
+//       let customerCandystring = JSON.stringify(candyObj);
+//       localStorage.setItem("godis", customerCandystring);
 
-    let numberInput = document.createElement("input") as HTMLInputElement;
-    numberInput.classList.add("input__number");
-    numberInput.type = "number";
-    numberInput.min = "1";
+//       handleSummary();
+//     });
 
-    numberInput.value = candyObj[i].amount;
+//     minusButton.addEventListener("click", () => subtrackCandy(i));
+//     // plusButton.addEventListener("click", () => addCandy(i));
 
-    numberInput.addEventListener("input", (event) => {
-      let value: any = (event.target as HTMLInputElement).value;
-      candyObj[i].amount = value;
+//     candyName.innerHTML = candyObj[i].name;
+//     candyPrice.innerHTML =
+//       String(candyObj[i].price * candyObj[i].amount) + " kr";
+//     minusButton.innerHTML = "Radera";
+//     // plusButton.innerHTML = "+";
 
-      // Update localStorage
-      let customerCandystring = JSON.stringify(candyObj);
-      localStorage.setItem("godis", customerCandystring);
+//     candyItemWrapper.appendChild(minusButton);
+//     // candyItemWrapper.appendChild(plusButton);
+//     candyItemWrapper.appendChild(numberInput);
+//     candyItemWrapper.appendChild(candyName);
 
-      handleSummary();
-    });
+//     candyName.appendChild(candyPrice);
+//     shoppingCart.appendChild(candyItemWrapper);
+//   }
+// }
+// handleShoppinglist();
 
-    minusButton.addEventListener("click", () => subtrackCandy(i));
-    // plusButton.addEventListener("click", () => addCandy(i));
+// //
 
-    candyName.innerHTML = candyObj[i].name;
-    candyPrice.innerHTML =
-      String(candyObj[i].price * candyObj[i].amount) + " kr";
-    minusButton.innerHTML = "Radera";
-    // plusButton.innerHTML = "+";
+// // Räknar ut Summan av alla varorna
 
-    candyItemWrapper.appendChild(minusButton);
-    // candyItemWrapper.appendChild(plusButton);
-    candyItemWrapper.appendChild(numberInput);
-    candyItemWrapper.appendChild(candyName);
+// function handleSummary() {
+//   let sum = 0;
 
-    candyName.appendChild(candyPrice);
-    shoppingCart.appendChild(candyItemWrapper);
+//   let summary = document.getElementById(
+//     "item__summary"
+//   ) as HTMLParagraphElement;
+//   summary.innerHTML = "";
 
-  }
-}
-handleShoppinglist();
+//   for (let i = 0; i < candyObj.length; i++) {
+//     sum += candyObj[i].price * candyObj[i].amount;
+//     summary.innerHTML = sum.toString() + " kr";
 
-//
+//     handleShoppinglist();
+//   }
+// }
+// handleSummary();
 
-// Räknar ut Summan av alla varorna
+// //
 
-function handleSummary() {
-  let sum = 0;
+// //
 
-  let summary = document.getElementById(
-    "item__summary"
-  ) as HTMLParagraphElement;
-  summary.innerHTML = "";
+// function subtrackCandy(i: number) {
+//   if (candyObj[i].amount > 1) {
+//     candyObj[i].amount--;
+//   } else {
+//     candyObj.splice(i, 1);
+//   }
 
-  for (let i = 0; i < candyObj.length; i++) {
-    sum += candyObj[i].price * candyObj[i].amount;
-    summary.innerHTML = sum.toString() + " kr";
+//   let customerCandystring = JSON.stringify(candyObj);
+//   localStorage.setItem("godis", customerCandystring);
 
-    handleShoppinglist();
-  }
-}
-handleSummary();
-
-//
-
-//
-
-function subtrackCandy(i: number) {
-  if (candyObj[i].amount > 1) {
-    candyObj[i].amount--;
-  } else {
-    candyObj.splice(i, 1);
-  }
-    
-  let customerCandystring = JSON.stringify(candyObj);
-  localStorage.setItem("godis", customerCandystring);
-
-  handleShoppinglist();
-  handleSummary();
-}
+//   handleShoppinglist();
+//   handleSummary();
+// }
