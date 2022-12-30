@@ -119,53 +119,53 @@
 //   let customerCandystring = JSON.stringify(candyObj);
 //   localStorage.setItem("godis", customerCandystring);
 
-<<<<<<< HEAD
-    handleShoppinglist();
-  }
-}
-handleSummary();
+// <<<<<<< HEAD
+//     handleShoppinglist();
+//   }
+// }
+// handleSummary();
 
-//
+// //
 
-//
+// //
 
-function subtrackCandy(i: number) {
-  if (candyObj[i].amount > 1) {
-    candyObj[i].amount--;
-  } else {
-    candyObj.splice(i, 1);
-  }
+// function subtrackCandy(i: number) {
+//   if (candyObj[i].amount > 1) {
+//     candyObj[i].amount--;
+//   } else {
+//     candyObj.splice(i, 1);
+//   }
     
-  let customerCandystring = JSON.stringify(candyObj);
-  localStorage.setItem("godis", customerCandystring);
+//   let customerCandystring = JSON.stringify(candyObj);
+//   localStorage.setItem("godis", customerCandystring);
 
-  handleShoppinglist();
-  handleSummary();
-}
-<<<<<<< HEAD
-
-function removeDoubles() {
-  for (let i = 0; i < candyAgain.length; i++) {
-    for (let x = 0; x < candyAgain.length; ++x) {
-      if (i !== x) {
-        if (candyAgain[i].name === candyAgain[x].name) {
-          candyAgain.splice(x, 1);
-          candyAgain[i].amount++;
-        }
-      }
-    }
-  }
-
-  console.log(candyAgain);
-}
-modalBtn.addEventListener("click", () => {
-  modalForm.style.display = "block";
-  console.log("clickck");
-});
-=======
->>>>>>> ddd038f71db088b733ef488ac5767a6e0b2d50e6
-=======
 //   handleShoppinglist();
 //   handleSummary();
 // }
->>>>>>> a5c1fb1c4f5be75c5c2cd8d51b508e6760c65814
+// <<<<<<< HEAD
+
+// function removeDoubles() {
+//   for (let i = 0; i < candyAgain.length; i++) {
+//     for (let x = 0; x < candyAgain.length; ++x) {
+//       if (i !== x) {
+//         if (candyAgain[i].name === candyAgain[x].name) {
+//           candyAgain.splice(x, 1);
+//           candyAgain[i].amount++;
+//         }
+//       }
+//     }
+//   }
+
+//   console.log(candyAgain);
+// }
+// modalBtn.addEventListener("click", () => {
+//   modalForm.style.display = "block";
+//   console.log("clickck");
+// });
+// =======
+// >>>>>>> ddd038f71db088b733ef488ac5767a6e0b2d50e6
+// =======
+// //   handleShoppinglist();
+// //   handleSummary();
+// // }
+// >>>>>>> a5c1fb1c4f5be75c5c2cd8d51b508e6760c65814
