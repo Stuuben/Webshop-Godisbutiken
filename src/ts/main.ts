@@ -77,7 +77,7 @@ let ferrari = new Candy(
   "Ferrari",
   5,
   "Hallon",
-  "https://www.cooperscandy.com/upload/prod/25861.jpg",
+  "https://swedishfoodshop.com/pub/media/catalog/product/cache/577ee1db3aa78a031ff4355fb63b3264/l/o/losviktgodis.ferrari.jpg",
   "Röda sega godisar med smak av hallon. Den är formad efter en ferraribil och har en söt smak."
 );
 let marabou = new Candy(
