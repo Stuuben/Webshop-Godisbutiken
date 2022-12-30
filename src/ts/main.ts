@@ -42,7 +42,7 @@ let fizzyBubliz = new Candy(
   "Fizzy Bubliz",
   6,
   "Sur",
-  "../assets/ferrari.png",
+  "../assets/fizzybubbliz.png",
   "Fizzy Bubblizz är en rosa och blå flaska med en mjuk konsistens och har en smak av bubbelgum."
 );
 let peanutSquare = new Candy(
