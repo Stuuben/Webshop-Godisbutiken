@@ -1,7 +1,6 @@
 import { candyAgain } from "./kassa";
 import { Candy, candys } from "./main";
 
-
 let container = document.getElementById("main") as HTMLDivElement;
 let boughtCandy: Candy[] = [];
 
@@ -51,12 +50,12 @@ function handleClick(godis: Candy) {
 
   let candyLS = localStorage.getItem("godis");
 
-  if(candyLS === null) {
+  if (candyLS === null) {
     boughtCandy.push(godis);
     let customerCandystring = JSON.stringify(boughtCandy);
     localStorage.setItem("godis", customerCandystring);
   } else {
-    let getCurrentCandy :any = localStorage.getItem("godis");
+    let getCurrentCandy: any = localStorage.getItem("godis");
     let currentCandy = JSON.parse(getCurrentCandy);
     currentCandy.push(godis);
     localStorage.setItem("godis", JSON.stringify(currentCandy));
@@ -74,7 +73,6 @@ function handleClick(godis: Candy) {
   //   localStorage.setItem("godis", JSON.stringify(currentCandy));
   // }
   // boughtCandy.push(godis);
-
 }
 
 let filter = " ";

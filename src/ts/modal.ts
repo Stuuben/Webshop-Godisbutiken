@@ -8,7 +8,11 @@ let modalBtn = document.getElementById("myBtn") as HTMLButtonElement;
 let modalSpan = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-modalBtn.addEventListener("click", () => (modalForm.style.display = "block"));
+
+modalBtn.addEventListener("click", () => {
+  modalForm.style.display = "block";
+  console.log("clickck");
+});
 
 // When the user clicks on <span> (x), close the modal
 modalSpan.addEventListener("click", () => (modalForm.style.display = "none"));
@@ -200,4 +204,7 @@ function removeDoubles() {
       }
     }
   }
+}
+function getModal(): any {
+  throw new Error("Function not implemented.");
 }

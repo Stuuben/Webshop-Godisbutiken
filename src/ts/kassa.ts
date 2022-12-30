@@ -204,3 +204,7 @@ function removeDoubles() {
 
   console.log(candyAgain);
 }
+modalBtn.addEventListener("click", () => {
+  modalForm.style.display = "block";
+  console.log("clickck");
+});
