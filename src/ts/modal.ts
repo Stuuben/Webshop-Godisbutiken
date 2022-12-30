@@ -205,7 +205,4 @@ trashcan.addEventListener("click", () => {
         }
       }
     }
-  
-    console.log(candyAgain);
-    
   }
