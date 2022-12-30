@@ -119,6 +119,7 @@
 //   let customerCandystring = JSON.stringify(candyObj);
 //   localStorage.setItem("godis", customerCandystring);
 
+<<<<<<< HEAD
 // <<<<<<< HEAD
 //     handleShoppinglist();
 //   }
@@ -169,3 +170,8 @@
 // //   handleSummary();
 // // }
 // >>>>>>> a5c1fb1c4f5be75c5c2cd8d51b508e6760c65814
+=======
+//   handleShoppinglist();
+//   handleSummary();
+// }
+>>>>>>> de9fa0fb5429d74e8c28fabc09d139d126a1fbdd
