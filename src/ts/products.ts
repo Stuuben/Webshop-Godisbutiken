@@ -1,6 +1,5 @@
 import { Candy, CandyInCart, candys } from "./main";
 
-
 let container = document.getElementById("main") as HTMLDivElement;
 
 //Loopar Candys objekten in i HTML:en
@@ -29,6 +28,7 @@ function createHTML() {
     buyBtn.classList.add("buy");
     buyBtn.addEventListener("click", () => {
       handleClick(candys[i]);
+      console.log(candys[i]);
     });
 
     div.appendChild(img);
@@ -43,12 +43,12 @@ function createHTML() {
 function handleClick(godis: Candy) {
   let candyLS = localStorage.getItem("godis");
 
-  if(candyLS === null) {
+  if (candyLS === null) {
     let customerCandystring = JSON.stringify([]);
     localStorage.setItem("godis", customerCandystring);
   }
 
-  let getCandy :any = localStorage.getItem("godis");
+  let getCandy: any = localStorage.getItem("godis");
   let currentCandy = JSON.parse(getCandy);
 
   let candyAlreadyInCart = false;
@@ -66,7 +66,7 @@ function handleClick(godis: Candy) {
       godis.type,
       godis.img,
       godis.desc,
-      1,
+      1
     );
     currentCandy.push(cartCandy);
   }

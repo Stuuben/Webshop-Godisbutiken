@@ -2,7 +2,7 @@
 let modalForm = document.getElementById("myModal") as HTMLDivElement;
 
 // Get the button that opens the modal
-let modalBtn = document.getElementById("myBtn") as HTMLButtonElement;
+let modalBtn = document.getElementById("myBtn") as HTMLIFrameElement;
 
 // Get the <span> element that closes the modal
 let modalSpan = document.getElementsByClassName("close")[0];
@@ -23,6 +23,12 @@ window.onclick = function (event) {
     modalForm.style.display;
   }
 };
+
+let lol = document.getElementById("lol") as HTMLButtonElement;
+lol.addEventListener("click", () => {
+  modalForm.style.display = "block";
+  console.log("går?");
+});
 
 //Hämtar från localstorage
 let candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
@@ -148,21 +154,3 @@ function subtrackCandy(i: number) {
   handleShoppinglist();
   handleSummary();
 }
-<<<<<<< HEAD
-
-function removeDoubles() {
-  for (let i = 0; i < candyAgain.length; i++) {
-    for (let x = 0; x < candyAgain.length; ++x) {
-      if (i !== x) {
-        if (candyAgain[i].name === candyAgain[x].name) {
-          candyAgain.splice(x, 1);
-        }
-      }
-    }
-  }
-}
-function getModal(): any {
-  throw new Error("Function not implemented.");
-}
-=======
->>>>>>> ddd038f71db088b733ef488ac5767a6e0b2d50e6
