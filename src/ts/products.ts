@@ -132,6 +132,42 @@ function checkForFilter() {
   });
 }
 
+function handleFilteredClick(filtreratGodis) {
+  console.log("Klickad!");
+  console.log(filtreratGodis);
+
+  let filterLS = localStorage.getItem("godis");
+
+  if (filterLS === null) {
+    let filteredCandyString = JSON.stringify([]);
+    localStorage.setItem("godis", filteredCandyString);
+  }
+
+  let getFCandy: any = localStorage.getItem("godis");
+  let currentFCandy = JSON.parse(getFCandy);
+
+  let candyAlreadyInCart = false;
+  for (let i = 0; i < currentFCandy.length; i++) {
+    if (currentFCandy[i].name === filtreratGodis.name) {
+      currentFCandy[i].amount++;
+      candyAlreadyInCart = true;
+    }
+  }
+
+  if (!candyAlreadyInCart) {
+    let cartCandy = new CandyInCart(
+      filtreratGodis.name,
+      filtreratGodis.price,
+      filtreratGodis.type,
+      filtreratGodis.img,
+      filtreratGodis.desc,
+      1
+    );
+    currentFCandy.push(cartCandy);
+  }
+  localStorage.setItem("godis", JSON.stringify(currentFCandy));
+}
+
 function filteredProducts() {
   let filteredList = candys.filter((candy) => {
     return candy.type === filter;
@@ -153,14 +189,14 @@ function filteredProducts() {
     h3.innerHTML = filteredList[i].name;
 
     let pTag = document.createElement("p") as HTMLParagraphElement;
-    pTag.innerHTML = String(`Pris: ${candys[i].price} kr`);
+    pTag.innerHTML = String(`Pris: ${filteredList[i].price} kr`);
     pTag.classList.add("candyPrice");
 
     let buyBtn = document.createElement("button") as HTMLButtonElement;
     buyBtn.innerHTML = "Köp";
     buyBtn.classList.add("buy");
     buyBtn.addEventListener("click", () => {
-      handleClick(candys[i]);
+      handleFilteredClick(filteredList[i]);
     });
 
     div.appendChild(img);
@@ -170,6 +206,7 @@ function filteredProducts() {
     container.appendChild(div);
   }
 }
+
 
 checkForFilter();
 createHTML();
