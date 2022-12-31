@@ -6,34 +6,29 @@ let modalBtn = document.getElementById("myBtn") as HTMLIFrameElement;
 // Get the <span> element that closes the modal
 let modalSpan = document.getElementsByClassName("close")[0];
 
+// Can be empty array with correct type
+let candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
+
 // When the user clicks on the button, open the modal
+modalBtn.addEventListener("click", () => {
+  candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
+  handleSummary();
+  modalForm.classList.add("show");
+});
 
-export function modal() {
-  modalBtn.addEventListener("click", () => {
-    modalForm.style.display = "block";
-    console.log("clickck");
-  });
+// When the user clicks on <span> (x), close the modal
+modalSpan.addEventListener("click", () => {
+  modalForm.classList.remove("show");
+});
 
-  // When the user clicks on <span> (x), close the modal
-  modalSpan.addEventListener("click", () => (modalForm.style.display = "none"));
-
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
-    if (event.target == modalForm) {
-      modalForm.style.display;
-    }
-  };
-}
-modal();
-
-let lol = document.getElementById("lol") as HTMLButtonElement;
-lol.addEventListener("click", () => {
-  modalForm.style.display = "block";
-  console.log("går?");
+// When the user clicks anywhere outside of the modal, close it
+modalForm.addEventListener("click", (event) => {
+  if (event.target === modalForm) {
+    modalForm.classList.remove("show");
+  }
 });
 
 //Hämtar från localstorage
-let candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
 
 console.log("shoppingcart");
 
