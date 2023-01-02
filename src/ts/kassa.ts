@@ -135,7 +135,7 @@
 //   } else {
 //     candyObj.splice(i, 1);
 //   }
-    
+
 //   let customerCandystring = JSON.stringify(candyObj);
 //   localStorage.setItem("godis", customerCandystring);
 

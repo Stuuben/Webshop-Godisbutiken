@@ -105,3 +105,5 @@ export let candys: Candy[] = [
   marabou,
   rassberrySkull,
 ];
+
+console.log("hej");

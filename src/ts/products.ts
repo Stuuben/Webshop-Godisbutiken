@@ -207,6 +207,6 @@ function filteredProducts() {
   }
 }
 
-
 checkForFilter();
 createHTML();
+console.log("hej");
