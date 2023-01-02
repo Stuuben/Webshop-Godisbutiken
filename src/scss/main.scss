@@ -46,22 +46,19 @@ nav {
   @include mixins.main;
   height: 80vh;
 
-  #img__startsida {
-    width: 100%;
-  }
   @include mixins.tablet {
     text-align: left;
     margin-bottom: 5%;
 
     .welcomeText {
-      width: 60%;
+      width: 55%;
     }
 
     .img__container {
-      width: 70%;
+      width: 55%;
     }
     #img__startsida {
-      width: 70%;
+      width: 55%;
     }
   }
 }
