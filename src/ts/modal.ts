@@ -111,8 +111,6 @@ function handleShoppinglist() {
 
     let minusButton = document.createElement("button");
     minusButton.classList.add("button__minus");
-    // let plusButton = document.createElement("button");
-    // plusButton.classList.add("button__plus");
 
     let numberInput = document.createElement("input") as HTMLInputElement;
     numberInput.classList.add("input__number");
@@ -133,16 +131,14 @@ function handleShoppinglist() {
     });
 
     minusButton.addEventListener("click", () => subtrackCandy(i));
-    // plusButton.addEventListener("click", () => addCandy(i));
 
     candyName.innerHTML = candyObj[i].name;
     candyPrice.innerHTML =
       String(candyObj[i].price * candyObj[i].amount) + " kr";
     minusButton.innerHTML = "Radera";
-    // plusButton.innerHTML = "+";
 
     candyItemWrapper.appendChild(minusButton);
-    // candyItemWrapper.appendChild(plusButton);
+
     candyItemWrapper.appendChild(numberInput);
     candyItemWrapper.appendChild(candyName);
 
@@ -151,8 +147,6 @@ function handleShoppinglist() {
   }
 }
 handleShoppinglist();
-
-//
 
 // Räknar ut Summan av alla varorna
 
@@ -176,3 +170,4 @@ function subtrackCandy(i: number) {
   handleShoppinglist();
   handleSummary();
 }
+console.log("hej");
