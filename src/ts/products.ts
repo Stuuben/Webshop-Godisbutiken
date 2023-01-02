@@ -168,6 +168,7 @@ function filteredProducts() {
     div.appendChild(pTag);
     div.appendChild(buyBtn);
     container.appendChild(div);
+  
   }
 }
 

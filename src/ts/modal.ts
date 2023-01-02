@@ -1,3 +1,20 @@
+function handleSummary() {
+  let sum = 0;
+
+  let summary = document.getElementById(
+    "item__summary"
+  ) as HTMLParagraphElement;
+  summary.innerHTML = "";
+
+  for (let i = 0; i < candyObj.length; i++) {
+    sum += candyObj[i].price * candyObj[i].amount;
+    summary.innerHTML = sum.toString() + " kr";
+
+    //handleShoppinglist();
+  }
+}
+
+
 // Get the modal
 let modalForm = document.getElementById("myModal") as HTMLDivElement;
 
@@ -11,6 +28,7 @@ let modalSpan = document.getElementsByClassName("close")[0];
 
 modalBtn.addEventListener("click", () => {
   modalForm.style.display = "block";
+  handleShoppinglist();
   console.log("clickck");
 });
 
@@ -19,9 +37,9 @@ modalSpan.addEventListener("click", () => (modalForm.style.display = "none"));
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-  if (event.target == modalForm) {
-    modalForm.style.display;
-  }
+   if (event.target == modalForm) {
+     modalForm.style.display="none";
+ }
 };
 
 //Hämtar från localstorage
@@ -55,6 +73,10 @@ trashcan.addEventListener("click", () => {
 //
 
 function handleShoppinglist() {
+
+  //Hämtar från localstorage
+  let candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
+  
   let shoppingCart = document.getElementById("candy__item") as HTMLDivElement;
 
   shoppingCart.innerHTML = "";
@@ -114,21 +136,7 @@ handleShoppinglist();
 
 // Räknar ut Summan av alla varorna
 
-function handleSummary() {
-  let sum = 0;
 
-  let summary = document.getElementById(
-    "item__summary"
-  ) as HTMLParagraphElement;
-  summary.innerHTML = "";
-
-  for (let i = 0; i < candyObj.length; i++) {
-    sum += candyObj[i].price * candyObj[i].amount;
-    summary.innerHTML = sum.toString() + " kr";
-
-    handleShoppinglist();
-  }
-}
 handleSummary();
 
 //
