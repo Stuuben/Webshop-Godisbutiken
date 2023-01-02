@@ -28,6 +28,7 @@ function createHTML() {
     buyBtn.classList.add("buy");
     buyBtn.addEventListener("click", () => {
       handleClick(candys[i]);
+      console.log(candys[i]);
     });
 
     div.appendChild(img);

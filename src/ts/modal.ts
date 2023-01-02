@@ -1,30 +1,34 @@
 let modalForm = document.getElementById("myModal") as HTMLDivElement;
 
 // Get the button that opens the modal
-let modalBtn = document.getElementById("myBtn") as HTMLButtonElement;
+let modalBtn = document.getElementById("myBtn") as HTMLIFrameElement;
 
 // Get the <span> element that closes the modal
 let modalSpan = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
+// Can be empty array with correct type
+let candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
 
+// When the user clicks on the button, open the modal
 modalBtn.addEventListener("click", () => {
-  modalForm.style.display = "block";
-  console.log("clickck");
+  candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
+  handleSummary();
+  modalForm.classList.add("show");
 });
 
 // When the user clicks on <span> (x), close the modal
-modalSpan.addEventListener("click", () => (modalForm.style.display = "none"));
+modalSpan.addEventListener("click", () => {
+  modalForm.classList.remove("show");
+});
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target == modalForm) {
-    modalForm.style.display;
+modalForm.addEventListener("click", (event) => {
+  if (event.target === modalForm) {
+    modalForm.classList.remove("show");
   }
-};
+});
 
 //Hämtar från localstorage
-let candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
 
 console.log("shoppingcart");
 
