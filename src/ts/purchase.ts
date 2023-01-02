@@ -1,5 +1,3 @@
-
-
 let testName: string = "hej";
 
 let userLS = JSON.parse(localStorage.getItem("user") || testName);
@@ -27,3 +25,4 @@ let backHomeButton = document.getElementById(
 backHomeButton.addEventListener("click", () => {
   document.location.href = "./../pages/index.html";
 });
+console.log("hej");
