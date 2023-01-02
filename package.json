@@ -4,6 +4,6 @@
     "parcel": "^2.8.2"
   },
   "scripts": {
-    "start": "npx parcel src/index.html src/pages/kassa.html src/pages/paymentsite.html src/pages/products.html src/pages/purchase.html"
+    "start": "npx parcel src/index.html src/pages/paymentsite.html src/pages/products.html src/pages/purchase.html"
   }
 }

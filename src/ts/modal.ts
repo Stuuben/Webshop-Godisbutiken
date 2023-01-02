@@ -145,5 +145,4 @@ function subtrackCandy(i: number) {
   handleShoppinglist();
   handleSummary();
 }
-
 console.log("hej");
