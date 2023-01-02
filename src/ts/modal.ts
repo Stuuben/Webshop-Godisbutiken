@@ -8,23 +8,20 @@ let modalSpan = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
 
-export function modal() {
-  modalBtn.addEventListener("click", () => {
-    modalForm.style.display = "block";
-    console.log("clickck");
-  });
+modalBtn.addEventListener("click", () => {
+  modalForm.style.display = "block";
+  console.log("clickck");
+});
 
-  // When the user clicks on <span> (x), close the modal
-  modalSpan.addEventListener("click", () => (modalForm.style.display = "none"));
+// When the user clicks on <span> (x), close the modal
+modalSpan.addEventListener("click", () => (modalForm.style.display = "none"));
 
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function (event) {
-    if (event.target == modalForm) {
-      modalForm.style.display;
-    }
-  };
-}
-modal();
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modalForm) {
+    modalForm.style.display;
+  }
+};
 
 //Hämtar från localstorage
 let candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
