@@ -58,6 +58,10 @@ trashcan.addEventListener("click", () => {
 //
 
 function handleShoppinglist() {
+
+  //Hämtar från localstorage
+  let candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
+  
   let shoppingCart = document.getElementById("candy__item") as HTMLDivElement;
 
   shoppingCart.innerHTML = "";
@@ -110,7 +114,6 @@ function handleShoppinglist() {
 handleShoppinglist();
 
 // Räknar ut Summan av alla varorna
-
 function handleSummary() {
   let sum = 0;
 
@@ -126,6 +129,7 @@ function handleSummary() {
     handleShoppinglist();
   }
 }
+
 handleSummary();
 
 //
