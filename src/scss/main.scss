@@ -1,12 +1,12 @@
 @use "hamburger";
 @use "variables" as var;
 @use "mixins";
-@use "modal";
 
 body {
   background-color: var.$fifth;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
 }
 
 //Headings
@@ -44,11 +44,11 @@ nav {
 //Landningssida
 .landingMain {
   @include mixins.main;
-  height: 80vh;
 
   @include mixins.tablet {
     text-align: left;
     margin-bottom: 5%;
+    align-items: center;
 
     .welcomeText {
       width: 55%;
@@ -63,38 +63,9 @@ nav {
   }
 }
 
-//Footer
-.contact {
-  @include mixins.footer;
-  height: 150px;
-  @include mixins.tablet {
-    display: flex;
-    width: 100%;
-    height: 30vh;
-
-    ul {
-      display: flex;
-      flex-direction: row;
-      font-size: 1.2em;
-      gap: 60px;
-      justify-content: space-evenly;
-    }
-
-    li {
-      max-width: 100%;
-    }
-  }
-}
-
 //Ikoner
 .fa-cart-shopping {
-  color: var.$third;
-  font-size: 2em;
-  transition: transform 0.2s linear;
-
-  &:hover {
-    transform: scale(1.1);
-  }
+  @include mixins.icon;
 
   @include mixins.tablet {
     font-size: 2.5em;
@@ -109,89 +80,7 @@ nav {
 
 //Varukorg
 .shoppingcart {
-  background-color: white;
-  border: 1px lightgray solid;
-  margin: 20px;
-  text-align: left;
-  color: rgb(61, 38, 42);
-
-  .fa-trash {
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: end;
-    color: var.$primary;
-    padding-right: 0.7rem;
-    &:hover {
-      cursor: pointer;
-      color: var.$third;
-    }
-  }
-  h3 {
-    text-align: center;
-  }
-
-  .input__number {
-    width: 2rem;
-  }
-  p.candy__name {
-    margin: 0;
-    padding-left: 1rem;
-    width: 100%;
-  }
-  button.button__minus {
-    margin: 0.4rem;
-    background-color: var.$primary;
-    border: none;
-    border-radius: 10px;
-    margin-left: 2px;
-    padding: 10px;
-
-    &:hover {
-      background-color: var.$third;
-      cursor: pointer;
-    }
-  }
-  .summa {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    button {
-      background-color: var.$primary;
-      border: none;
-      border-radius: 10px;
-      padding: 8px;
-
-      &:hover {
-        background-color: var.$third;
-        cursor: pointer;
-      }
-    }
-  }
-  span {
-    text-align: right;
-    display: flex;
-    justify-content: right;
-    padding-right: 0.9rem;
-  }
-  .itemWrapper {
-    border-bottom: 1px solid lightgray;
-    padding: 5px;
-    &:last-child {
-      border-bottom: 0;
-    }
-    display: flex;
-  }
-
-  .button__wrapper {
-    display: flex;
-  }
-  .fa-cart-circle-xmark {
-    background-color: black;
-  }
-  .summa {
-    border-top: 1px solid lightgray;
-  }
+  @include mixins.cart;
 }
 
 //Kassa
@@ -238,7 +127,7 @@ nav {
   }
 }
 
-//Filtrering
+//Filtrering av produkter
 .filter__container {
   @include mixins.filterCandy;
 }
@@ -264,33 +153,19 @@ nav {
   }
 }
 
-.biggestWrapper {
-  display: flex;
-  flex-direction: column;
 
-  @include mixins.tablet {
-    flex-direction: column;
-    width: 50%;
-  }
-}
+// .biggestWrapper {
+//   display: flex;
+//   flex-direction: column;
+
+//   @include mixins.tablet {
+//     flex-direction: column;
+//     width: 50%;
+//   }
+// }
 
 .purchase {
   @include mixins.purchase;
-  button {
-    background-color: var.$primary;
-    border: none;
-    border-radius: 10px;
-    padding: 14px;
-    margin-top: 10%;
-    font-size: medium;
-
-    &:hover {
-      background-color: var.$third;
-      transform: scale(1.1);
-      transition: 0.15s;
-      cursor: pointer;
-    }
-  }
 
   @include mixins.tablet {
     justify-content: flex-start;
@@ -308,36 +183,12 @@ nav {
   }
 }
 
-/* The Modal (background) */
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  // width: 100%; /* Full width */
-  // height: 100%; /* Full height */
-
-  width: 100vw;
-  height: 100vh;
-
-  overflow: auto; /* Enable scroll if needed */
-  // background-color: rgb(0, 0, 0); /* Fallback color */
-
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  @include mixins.modal-base;
 }
 
-/* Modal Content/Box */
 .modal-content {
-  background-color: rgb(255, 255, 255);
-  // margin: 5% 48%; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 100%; /* Could be more or less, depending on screen size */
-  // position: sticky;
-  // left: calc(100% - 50% - 100px);
-  // top: 100px;
-  // width: 95%;
+  @include mixins.modal-content;
 
   @include mixins.tablet {
     width: 50%;
@@ -347,17 +198,30 @@ nav {
   }
 }
 
-/* The Close Button */
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+  @include mixins.modal-close;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+
+//Footer
+.contact {
+  @include mixins.footer;
+
+  @include mixins.tablet {
+    display: flex;
+    width: 100%;
+    height: 30vh;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      font-size: 1.2em;
+      gap: 60px;
+      justify-content: space-evenly;
+    }
+
+    li {
+      max-width: 100%;
+    }
+  }
 }
