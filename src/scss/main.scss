@@ -15,7 +15,7 @@ body {
 .paymentHeading {
   color: var.$fourth;
   font-family: "Unbounded", cursive;
-  font-size: 3em;
+  font-size: 2em;
   text-align: center;
 }
 
@@ -153,7 +153,6 @@ nav {
   }
 }
 
-
 // .biggestWrapper {
 //   display: flex;
 //   flex-direction: column;
@@ -201,7 +200,6 @@ nav {
 .close {
   @include mixins.modal-close;
 }
-
 
 //Footer
 .contact {

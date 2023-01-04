@@ -42,6 +42,7 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  height: 70vh;
 
   h1 {
     font-family: "Unbounded", cursive;
@@ -50,7 +51,7 @@
   }
 
   .welcomeText {
-    width: 80%;
+    padding-bottom: 40px;
   }
 
   .img__container {
@@ -65,7 +66,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 30vh;
+  min-height: 20vh;
 
   ul {
     list-style-type: none;
@@ -183,6 +184,7 @@
   color: rgb(61, 38, 42);
   justify-content: center;
   align-items: center;
+  height: 45vh;
 }
 
 @mixin cart {
@@ -352,7 +354,7 @@
   background-color: rgb(255, 255, 255);
   padding: 20px;
   border: 1px solid #888;
-  width: 100%; 
+  width: 100%;
 }
 
 @mixin modal-close {
@@ -360,5 +362,4 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
-  
 }
