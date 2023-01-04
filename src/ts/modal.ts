@@ -121,6 +121,8 @@ function handleSummary() {
   ) as HTMLParagraphElement;
   summary.innerHTML = "";
 
+  candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
+  
   for (let i = 0; i < candyObj.length; i++) {
     sum += candyObj[i].price * candyObj[i].amount;
     summary.innerHTML = sum.toString() + " kr";
