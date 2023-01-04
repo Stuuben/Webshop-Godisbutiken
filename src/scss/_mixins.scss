@@ -42,15 +42,12 @@
   text-align: center;
   display: flex;
   flex-direction: column;
+  min-height: 60vh;
 
   h1 {
     font-family: "Unbounded", cursive;
     font-size: 2.5em;
     color: var.$fourth;
-  }
-
-  .welcomeText {
-    width: 80%;
   }
 
   .img__container {
@@ -352,7 +349,7 @@
   background-color: rgb(255, 255, 255);
   padding: 20px;
   border: 1px solid #888;
-  width: 100%; 
+  width: 100%;
 }
 
 @mixin modal-close {
@@ -360,5 +357,4 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
-  
 }
