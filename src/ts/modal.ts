@@ -30,12 +30,9 @@ modalForm.addEventListener("click", (event) => {
 
 //Hämtar från localstorage
 
-console.log("shoppingcart");
-
 let paymentButton = document.getElementById("paymentButton") as HTMLDivElement;
 
 paymentButton.addEventListener("click", () => {
-  console.log("click");
   document.location.href = "/pages/paymentsite.html";
 });
 
@@ -50,7 +47,6 @@ trashcan.addEventListener("click", () => {
     candyObj.length = 0;
     localStorage.clear();
 
-    console.log(candyObj);
     handleShoppinglist();
   }
 });
@@ -122,7 +118,7 @@ function handleSummary() {
   summary.innerHTML = "";
 
   candyObj = JSON.parse(localStorage.getItem("godis") || "[]");
-  
+
   for (let i = 0; i < candyObj.length; i++) {
     sum += candyObj[i].price * candyObj[i].amount;
     summary.innerHTML = sum.toString() + " kr";
@@ -150,4 +146,3 @@ function subtrackCandy(i: number) {
   handleShoppinglist();
   handleSummary();
 }
-console.log("hej");

@@ -25,4 +25,3 @@ let backHomeButton = document.getElementById(
 backHomeButton.addEventListener("click", () => {
   document.location.href = "./../pages/index.html";
 });
-console.log("hej");

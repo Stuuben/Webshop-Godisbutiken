@@ -1,5 +1,3 @@
-// console.log("hej");
-
 export class Candy {
   name: string;
   price: number;
@@ -105,5 +103,3 @@ export let candys: Candy[] = [
   marabou,
   rassberrySkull,
 ];
-
-console.log("hej");

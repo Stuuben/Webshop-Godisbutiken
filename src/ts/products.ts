@@ -133,7 +133,6 @@ function checkForFilter() {
 }
 
 function handleFilteredClick(filtreratGodis) {
-  console.log("Klickad!");
   console.log(filtreratGodis);
 
   let filterLS = localStorage.getItem("godis");
@@ -204,10 +203,8 @@ function filteredProducts() {
     div.appendChild(pTag);
     div.appendChild(buyBtn);
     container.appendChild(div);
-  
   }
 }
 
 checkForFilter();
 createHTML();
-console.log("hej");

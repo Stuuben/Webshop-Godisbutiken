@@ -174,16 +174,6 @@ nav {
   }
 }
 
-// .biggestWrapper {
-//   display: flex;
-//   flex-direction: column;
-
-//   @include mixins.tablet {
-//     flex-direction: column;
-//     width: 50%;
-//   }
-// }
-
 .purchase {
   @include mixins.purchase;
 

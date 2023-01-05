@@ -14,4 +14,3 @@ function customerPurchase() {
     document.location.href = "./../pages/purchase.html";
   }
 }
-console.log("hej");
