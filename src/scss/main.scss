@@ -19,6 +19,11 @@ body {
   text-align: center;
 }
 
+.switch {
+  display: flex;
+  flex-direction: row;
+}
+
 //Navigering
 nav {
   @include hamburger.mobile-menu;
@@ -76,6 +81,17 @@ nav {
     font-size: 2.5em;
     padding: 5px;
   }
+}
+#sW {
+  text-decoration: none;
+  cursor: auto;
+  &::after {
+    text-decoration: none;
+  }
+}
+.fa-regular {
+  font-size: 1.5em;
+  color: var.$third;
 }
 
 .logo {
