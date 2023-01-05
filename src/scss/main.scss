@@ -15,7 +15,7 @@ body {
 .paymentHeading {
   color: var.$fourth;
   font-family: "Unbounded", cursive;
-  font-size: 3em;
+  font-size: 2em;
   text-align: center;
 }
 
@@ -29,6 +29,11 @@ nav {
     .top-nav {
       flex-direction: row-reverse;
       height: 10vh;
+
+      .switch {
+        display: flex;
+        flex-direction: row-reverse;
+      }
 
       .logo {
         position: absolute;
@@ -153,7 +158,6 @@ nav {
   }
 }
 
-
 // .biggestWrapper {
 //   display: flex;
 //   flex-direction: column;
@@ -201,7 +205,6 @@ nav {
 .close {
   @include mixins.modal-close;
 }
-
 
 //Footer
 .contact {
